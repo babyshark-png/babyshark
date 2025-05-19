@@ -302,6 +302,19 @@
             color: #D1D5DB; 
         }
 
+        /* Custom SVG Icons for About Section */
+        .about-icon {
+            width: 5rem; /* 80px */
+            height: 5rem; /* 80px */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            fill: currentColor; /* Sẽ lấy màu từ text color của parent */
+        }
+        .about-icon-fresh { color: var(--ocean-blue-light); }
+        .about-icon-creative { color: var(--coral-pink); }
+        .about-icon-delivery { color: #F59E0B; } /* Amber-500 */
+
     </style>
 </head>
 
@@ -349,7 +362,10 @@
              <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 reveal-on-scroll slide-in-up" style="transition-delay: 0.1s;">(Câu chuyện về Mii và hành trình mở tiệm bánh)</p>
             <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                 <div class="md:w-1/3 reveal-on-scroll slide-in-left">
-                    <img src="asset/Image/shark-logo.png" alt="Mii - Chú Cá Mập làm bánh" class="rounded-2xl shadow-2xl w-full max-w-xs md:max-w-sm h-auto object-contain p-4 bg-white/10">
+                    <video class="rounded-2xl shadow-2xl w-full max-w-xs md:max-w-sm h-auto object-contain bg-black/20" autoplay loop muted playsinline>
+                        <source src="asset/Video/video-tiem-banh-ca-map.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ thẻ video.
+                    </video>
                 </div>
                 <div class="md:w-2/3 text-left">
                     <p class="text-lg md:text-xl text-gray-200 mb-4 reveal-on-scroll slide-in-right" style="transition-delay: 0.1s;">
@@ -385,30 +401,30 @@
                     <img src="asset/Image/banh-ca-map-mini.jpg" alt="Bánh Cá Mập Mini" class="w-full">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-2 font-pacifico">Bánh Cá Mập Mini</h3>
-                        <p class="text-sm mb-2">“Cắn một miếng, ngoạm cả bầu trời”</p>
+                        <p class="text-xs text-gray-400 mb-1 italic">“Cắn một miếng, ngoạm cả bầu trời”</p>
                         <p class="text-sm mb-4">Hình cá mập béo tròn, đầu nhô ra khỏi bánh kem. Bên trong là lớp mousse vani mềm, thêm lõi phô mai chảy nhẹ.</p>
                         <p class="text-lg font-bold text-yellow-300 mb-3">Giá: 135.000đ/cái</p>
-                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-200 font-semibold transition-colors text-sm">Xem thêm chi tiết &rarr;</a>
+                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-200 font-semibold transition-colors text-sm">Xem thêm chi tiết →</a>
                     </div>
                 </div>
                 <div class="featured-cake-card reveal-on-scroll slide-in-up" style="transition-delay: 0.2s;">
                     <img src="asset/Image/banh-lava-nui-lua-bien-sau.webp" alt="Bánh Lava Núi Lửa Biển Sâu" class="w-full">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-2 font-pacifico">Bánh Lava Núi Lửa</h3>
-                        <p class="text-sm mb-2">“Đụng là phun, cắn là mê”</p>
+                        <p class="text-xs text-gray-400 mb-1 italic">“Đụng là phun, cắn là mê”</p>
                         <p class="text-sm mb-4">Vỏ chocolate đen mịn, bên trong là dòng socola tan chảy ấm nóng. Một trải nghiệm bùng nổ!</p>
                         <p class="text-lg font-bold text-yellow-300 mb-3">Giá: 35.000 – 45.000đ/cái</p>
-                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-200 font-semibold transition-colors text-sm">Xem thêm chi tiết &rarr;</a>
+                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-200 font-semibold transition-colors text-sm">Xem thêm chi tiết →</a>
                     </div>
                 </div>
                 <div class="featured-cake-card reveal-on-scroll slide-in-right" style="transition-delay: 0.4s;">
                     <img src="asset/Image/cupcake-ca-map-nhay-nhot.jpg" alt="Cupcake Cá Mập Nhảy Nhót" class="w-full">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-2 font-pacifico">Cupcake Cá Mập</h3>
-                        <p class="text-sm mb-2">“Nhìn thấy vui, ăn xong lắc luôn mông”</p>
+                        <p class="text-xs text-gray-400 mb-1 italic">“Nhìn thấy vui, ăn xong lắc luôn mông”</p>
                         <p class="text-sm mb-4">Đầu cá mập nhảy lên khỏi sóng kem pastel. Vây marshmallow bóp được siêu cưng.</p>
                         <p class="text-lg font-bold text-yellow-300 mb-3">Giá: 35.000 – 40.000đ/cái</p>
-                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-200 font-semibold transition-colors text-sm">Xem thêm chi tiết &rarr;</a>
+                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-200 font-semibold transition-colors text-sm">Xem thêm chi tiết →</a>
                     </div>
                 </div>
             </div>
@@ -429,17 +445,17 @@
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-xl shadow-lg text-center reveal-on-scroll slide-in-left hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-                    <img src="https://placehold.co/80x80/34D399/FFFFFF?text=🎂&font=noto" alt="Biểu tượng bánh kem tươi ngon" class="mx-auto mb-4 h-20 w-20">
+                    <svg class="about-icon about-icon-fresh" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M85,40 A15,15 0 0,0 70,25 H30 A15,15 0 0,0 15,40 V60 A15,15 0 0,0 30,75 H70 A15,15 0 0,0 85,60 Z M50,30 A5,5 0 1,1 50,20 A5,5 0 0,1 50,30 M30,45 H70 M30,55 H70 M40,65 H60" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M45,25 Q50,15 55,25" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/> <circle cx="35" cy="35" r="3" fill="currentColor"/> <circle cx="65" cy="35" r="3" fill="currentColor"/></svg>
                     <h3 class="text-2xl font-semibold text-blue-500 mb-2">Bánh Tươi Mỗi Ngày</h3>
                     <p class="text-md text-gray-600">Nguyên liệu tươi ngon, đảm bảo chất lượng và hương vị tuyệt hảo.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg text-center reveal-on-scroll slide-in-up hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300" style="transition-delay: 0.2s;">
-                     <img src="https://placehold.co/80x80/F472B6/FFFFFF?text=🎨&font=noto" alt="Biểu tượng thiết kế sáng tạo" class="mx-auto mb-4 h-20 w-20">
+                     <svg class="about-icon about-icon-creative" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,15 L65,35 L55,35 L55,65 L45,65 L45,35 L35,35 Z M25,70 H75 Q75,85 50,85 Q25,85 25,70" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M50,15 Q40,25 35,35 M50,15 Q60,25 65,35" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="50" cy="50" r="3" fill="currentColor"/><path d="M30,50 A20,20 0 0,0 70,50" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="5,5"/></svg>
                     <h3 class="text-2xl font-semibold text-pink-500 mb-2">Thiết Kế Sáng Tạo</h3>
                     <p class="text-md text-gray-600">Mẫu mã đa dạng, nhận thiết kế theo yêu cầu, độc đáo và cá tính.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg text-center reveal-on-scroll slide-in-right hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300" style="transition-delay: 0.3s;">
-                    <img src="https://placehold.co/80x80/FBBF24/FFFFFF?text=🚚&font=noto" alt="Biểu tượng giao hàng nhanh" class="mx-auto mb-4 h-20 w-20">
+                    <svg class="about-icon about-icon-delivery" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M15,65 H70 L85,50 L70,35 H15 Z M15,65 V35 M70,50 H85 M25,50 H55 M20,40 L10,50 L20,60" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="30" cy="70" r="5" stroke="currentColor" stroke-width="4" fill="none"/><circle cx="60" cy="70" r="5" stroke="currentColor" stroke-width="4" fill="none"/><path d="M55,35 L65,25 M60,35 L70,25 M65,35 L75,25" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
                     <h3 class="text-2xl font-semibold text-yellow-500 mb-2">Giao Hàng Nhanh Chóng</h3>
                     <p class="text-md text-gray-600">Cam kết giao bánh đúng hẹn, giữ trọn vẹn hương vị và hình thức.</p>
                 </div>
@@ -474,17 +490,17 @@
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 font-pacifico reveal-on-scroll slide-in-up" style="text-shadow: 0 2px 5px rgba(0,0,0,0.4);">Khách Hàng Nói Gì Về Chúng Tôi?</h2>
             <div class="grid md:grid-cols-3 gap-8 md:gap-10">
                 <div class="testimonial-card p-8 rounded-2xl shadow-xl reveal-on-scroll slide-in-left">
-                    <img src="https://placehold.co/100x100/FFC0CB/0A2463?text=Trang&font=Inter" alt="Chị Trang - Khách hàng" class="w-24 h-24 rounded-full mx-auto mb-6 shadow-md">
+                    <img src="asset/Image/chi-trang.jpg" alt="Chị Trang - Khách hàng" class="w-24 h-24 rounded-full mx-auto mb-6 shadow-md object-cover">
                     <p class="testimonial-quote text-lg mb-4">“Tôi vô tình thấy tiệm trên Facebook, thấy dễ thương quá nên dắt bé Bin tới thử. Tới nơi thì bé nó hét lên: ‘Mẹ ơi cá mập biết làm bánh kìa!’ Tôi thích nhất là tiệm sạch sẽ, bánh thì ít ngọt, phù hợp cho con nít. Mà bé Bin thì mê luôn cái bánh cá mập – nó không chịu ăn mà cứ ôm đi khoe hết nguyên tiệm. Mấy bạn nhân viên thì dễ thương, còn kể chuyện ‘cá mập làm bánh’ như đang ở Disneyland vậy. Điểm cộng to đùng là: con vui, mẹ yên tâm.”</p>
                     <p class="testimonial-author">- Chị Trang (29 tuổi, huyện Mang Yang) -</p>
                 </div>
                 <div class="testimonial-card p-8 rounded-2xl shadow-xl reveal-on-scroll slide-in-up" style="transition-delay: 0.2s;">
-                    <img src="https://placehold.co/100x100/B0E0E6/0A2463?text=M.Anh&font=Inter" alt="Minh Anh - Khách hàng" class="w-24 h-24 rounded-full mx-auto mb-6 shadow-md">
+                    <img src="asset/Image/minh.anh.jpg" alt="Minh Anh - Khách hàng" class="w-24 h-24 rounded-full mx-auto mb-6 shadow-md object-cover">
                     <p class="testimonial-quote text-lg mb-4">“Tụi mình hay rủ nhau đi săn mấy quán ‘vừa ăn vừa sống ảo’ – Tiệm Cá Mập là một cú trúng tim. Không gian cute, bánh thì đỉnh. Lúc đầu tưởng chỉ dành cho trẻ con, ai dè nhìn lại mấy tấm ảnh tụi mình chụp với cái bánh cá mập… thấy mình cũng trẻ con không kém. À đặc biệt là có cả khu kể chuyện, âm thanh cá mập nói giọng hài lắm, kiểu đúng trend TikTok. Từ lúc biết quán, mình mua về làm quà sinh nhật cho bạn nhỏ trong nhà luôn.”</p>
                     <p class="testimonial-author">- Minh Anh (20 tuổi, sinh viên Đại học) -</p>
                 </div>
                 <div class="testimonial-card p-8 rounded-2xl shadow-xl reveal-on-scroll slide-in-right" style="transition-delay: 0.4s;">
-                    <img src="https://placehold.co/100x100/FFDAB9/0A2463?text=Thỏ&font=Pacifico" alt="Bé Thỏ - Khách hàng nhí" class="w-24 h-24 rounded-full mx-auto mb-6 shadow-md">
+                    <img src="asset/Image/be-tho.jpg" alt="Bé Thỏ - Khách hàng nhí" class="w-24 h-24 rounded-full mx-auto mb-6 shadow-md object-cover">
                     <p class="testimonial-quote text-lg mb-4">“Con thích tiệm bánh này vì con được vẽ lên cá mập, được ăn bánh mà còn có sticker tặng nữa. Hôm bữa sinh nhật con, cô bán bánh còn hát Happy Birthday bằng giọng cá mập. Vui lắm luôn! Bánh cá mập ngon mà không cay đâu ạ!”</p>
                     <p class="testimonial-author">- Bé Thỏ (7 tuổi, khách quen nhí) -</p>
                 </div>
@@ -573,21 +589,23 @@
                 <a href="https://www.facebook.com/anghoanphuc.2025" target="_blank" aria-label="Facebook của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
                     <i class="fab fa-facebook fa-2x"></i>
                 </a>
-                <a href="https://www.instagram.com/camapconbakery_official" target="_blank" aria-label="Instagram của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110"> <i class="fab fa-instagram fa-2x"></i>
+                <a href="https://www.instagram.com/camapconbakery_official" target="_blank" aria-label="Instagram của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110"> 
+                    <i class="fab fa-instagram fa-2x"></i>
                 </a>
                 <a href="https://www.tiktok.com/?utm_source=chatgpt.com" target="_blank" aria-label="Tiktok của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
                      <i class="fab fa-tiktok fa-2x"></i>
                 </a>
                  <a href="https://zalo.me/0865726848" target="_blank" aria-label="Zalo của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
-                    <i class="fas fa-comment-dots fa-2x"></i> </a>
+                    <i class="fas fa-comment-dots fa-2x"></i> 
+                </a>
             </div>
             <div class="mb-8 reveal-on-scroll slide-in-up">
                 <h4 class="text-xl font-semibold mb-3">Tìm Chúng Tôi Trên Bản Đồ:</h4>
                 <div class="w-full max-w-md h-64 bg-gray-700 rounded-lg mx-auto flex items-center justify-center text-gray-400 border-2 border-blue-400 shadow-lg overflow-hidden">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.0000000000005!2d106.00000000000001!3d10.000000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDAwJzAwLjAiTiAxMDbCsDAwJzAwLjAiRQ!5e0!3m2!1svi!2s!4v1678888888888!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.339020047088!2d106.7291304153034!3d11.08893865727038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174c5274509887b%3A0x963342353392808!2zVHLGsOG7nW5nIFRIQ1MgVMOibiBCw6xuaA!5e0!3m2!1svi!2s!4v1684500000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            <p class="text-md text-blue-200">&copy; <span id="currentYear"></span> Tiệm Bánh Cá Mập Con. All Rights Reserved.</p>
+            <p class="text-md text-blue-200">© <span id="currentYear"></span> Tiệm Bánh Cá Mập Con. All Rights Reserved.</p>
             <p class="text-sm text-blue-300 mt-2">Website được thiết kế với <i class="fas fa-heart text-red-400"></i> bởi AI.</p>
         </div>
     </footer>
@@ -815,7 +833,7 @@
             letterRevealElements.forEach(el => {
                 const text = el.textContent; 
                 el.innerHTML = text.split('').map((char, i) => 
-                    `<span style="animation-delay: ${i * 0.05 + 0.3}s">${char === ' ' ? '&nbsp;' : char}</span>`
+                    `<span style="animation-delay: ${i * 0.05 + 0.3}s">${char === ' ' ? ' ' : char}</span>`
                 ).join('');
             });
 
