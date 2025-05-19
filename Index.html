@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiệm Bánh Cá Mập Con - Bánh Ngon Vui Nhộn!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Ngăn cuộn ngang */
+        }
+
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* Animation cho tiêu đề */
+        @keyframes bounce-in {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(-30px);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.1);
+            }
+            80% {
+                opacity: 1;
+                transform: scale(0.89);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .animate-bounce-in {
+            animation: bounce-in 1s ease-out forwards;
+        }
+
+        /* Animation sóng nhẹ */
+        @keyframes gentle-wave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .animate-gentle-wave {
+            animation: gentle-wave 2s ease-in-out infinite;
+        }
+
+        /* Hiệu ứng lấp lánh cho nút */
+        @keyframes sparkle {
+            0%, 100% { box-shadow: 0 0 5px #fef08a, 0 0 10px #fef08a, 0 0 15px #fde047; }
+            50% { box-shadow: 0 0 10px #fde047, 0 0 20px #fde047, 0 0 30px #facc15; }
+        }
+
+        .btn-sparkle {
+            animation: sparkle 1.5s infinite;
+        }
+
+        /* Hiệu ứng zoom nhẹ cho ảnh gallery khi hover */
+        .gallery-img:hover { /* This class might be used if you add a gallery preview here */
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Responsive text size */
+        .hero-title {
+            font-size: 2.5rem; /* Mặc định cho desktop */
+        }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem; /* Cho tablet */
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem; /* Cho mobile */
+            }
+        }
+
+        /* Đảm bảo các phần tử không tràn */
+        .section-container {
+            width: 100%;
+            max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .full-bleed-bg {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+    </style>
+</head>
+
+<body class="bg-sky-100 text-gray-800">
+
+    <header class="bg-blue-500 shadow-lg sticky top-0 z-50">
+        <div class="section-container py-3 px-4 md:px-6 flex justify-between items-center">
+            <a href="Index.html" class="flex items-center space-x-2"> <img src="asset/Image/shark-logo.png" alt="Logo Tiệm Bánh Cá Mập Con" class="h-12 md:h-14 rounded-lg"> </a>
+            <nav class="hidden md:flex space-x-4">
+                <a href="#home" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Trang Chủ</a>
+                <a href="maubanh.html" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Mẫu Bánh</a> <a href="#order" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Đặt Bánh</a>
+                <a href="#contact" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Liên Hệ</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-blue-500">
+            <a href="#home" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Trang Chủ</a>
+            <a href="maubanh.html" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Mẫu Bánh</a> <a href="#order" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Đặt Bánh</a>
+            <a href="#contact" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Liên Hệ</a>
+        </div>
+    </header>
+
+    <section id="home" class="full-bleed-bg bg-gradient-to-br from-blue-400 to-teal-300 py-16 md:py-24 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            </div>
+        <div class="section-container text-center relative z-10">
+            <img src="asset/Image/shark-logo.png" alt="Logo Tiệm Bánh Cá Mập Con" class="mx-auto mb-6 h-24 w-auto md:h-32 rounded-lg shadow-xl animate-gentle-wave">
+            <h1 class="hero-title font-pacifico mb-4 animate-bounce-in">Tiệm Bánh Cá Mập Con</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Mang đến những chiếc bánh thơm ngon, ngộ nghĩnh cho mọi khoảnh khắc đáng yêu!</p>
+            <a href="#order" class="bg-yellow-400 hover:bg-yellow-500 text-blue-700 font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg btn-sparkle">
+                Đặt Bánh Ngay!
+            </a>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-16 md:h-24">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <path d="M0 48C144 48 288 96 432 96C576 96 720 48 864 48C1008 48 1152 96 1296 96C1368 96 1440 72 1440 48V120H0V48Z" fill="#F0F9FF"/>
+            </svg>
+        </div>
+    </section>
+
+    <section id="about" class="py-12 md:py-20 bg-sky-50">
+        <div class="section-container text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-600 mb-6 font-pacifico">Chào Mừng Đến Đại Dương Bánh Ngọt!</h2>
+            <p class="text-md md:text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+                Tại Tiệm Bánh Cá Mập Con, mỗi chiếc bánh là một tác phẩm nghệ thuật được tạo ra từ tình yêu và sự tỉ mỉ. Chúng tôi chuyên về các loại bánh kem, bánh ngọt với chủ đề đại dương và các nhân vật hoạt hình đáng yêu, đặc biệt là gia đình Cá Mập Con. Hoàn hảo cho các bữa tiệc sinh nhật, sự kiện đặc biệt hoặc đơn giản là một món quà ngọt ngào cho người thân yêu.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <img src="https://placehold.co/80x80/34D399/FFFFFF?text=🎂&font=noto" alt="[Biểu tượng bánh kem]" class="mx-auto mb-3 h-16 w-16">
+                    <h3 class="text-xl font-semibold text-blue-500 mb-2">Bánh Tươi Mỗi Ngày</h3>
+                    <p class="text-sm text-gray-600">Nguyên liệu tươi ngon, đảm bảo chất lượng và hương vị tuyệt hảo.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                     <img src="https://placehold.co/80x80/F472B6/FFFFFF?text=🎨&font=noto" alt="[Biểu tượng bảng màu]" class="mx-auto mb-3 h-16 w-16">
+                    <h3 class="text-xl font-semibold text-pink-500 mb-2">Thiết Kế Sáng Tạo</h3>
+                    <p class="text-sm text-gray-600">Mẫu mã đa dạng, nhận thiết kế theo yêu cầu, độc đáo và cá tính.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <img src="https://placehold.co/80x80/FBBF24/FFFFFF?text=🚚&font=noto" alt="[Biểu tượng xe giao hàng]" class="mx-auto mb-3 h-16 w-16">
+                    <h3 class="text-xl font-semibold text-yellow-500 mb-2">Giao Hàng Nhanh Chóng</h3>
+                    <p class="text-sm text-gray-600">Cam kết giao bánh đúng hẹn, giữ trọn vẹn hương vị và hình thức.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="py-12 md:py-20 bg-yellow-50">
+        <div class="section-container">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-yellow-700 mb-4 font-pacifico">Đặt Bánh Ngay!</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                Gửi cho chúng tôi hình ảnh mẫu bánh bạn yêu thích hoặc ý tưởng của bạn.
+                Tiệm Bánh Cá Mập Con cam kết:
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-10 text-center">
+                <div class="bg-yellow-100 p-4 rounded-lg shadow-md">
+                    <p class="text-yellow-700 font-semibold"><span class="text-2xl">💬</span> Phản hồi tin nhắn trong <strong class="text-yellow-800">20 phút</strong></p>
+                </div>
+                <div class="bg-yellow-100 p-4 rounded-lg shadow-md">
+                    <p class="text-yellow-700 font-semibold"><span class="text-2xl">⏱️</span> Hoàn thiện bánh trong <strong class="text-yellow-800">3 giờ</strong> (kể từ khi chốt đơn)</p>
+                </div>
+            </div>
+
+            <form id="orderForm" class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-2xl">
+                <div class="mb-6">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Họ và Tên:</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 transition duration-150" placeholder="Nguyễn Văn A">
+                </div>
+                <div class="mb-6">
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Số Điện Thoại:</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 transition duration-150" placeholder="09xxxxxxxx">
+                </div>
+                <div class="mb-6">
+                    <label for="cakeImage" class="block text-sm font-medium text-gray-700 mb-1">Tải Lên Ảnh Mẫu Bánh (nếu có):</label>
+                    <input type="file" id="cakeImage" name="cakeImage" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-yellow-100 file:text-yellow-700 hover:file:bg-yellow-200 transition duration-150">
+                    <img id="imagePreview" src="#" alt="Xem trước ảnh" class="hidden mt-4 max-h-48 rounded-lg mx-auto"/>
+                </div>
+                <div class="mb-6">
+                    <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Yêu Cầu Đặc Biệt:</label>
+                    <textarea id="notes" name="notes" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 transition duration-150" placeholder="Ví dụ: Bánh ít ngọt, thêm dâu tây, ghi chữ 'Chúc mừng sinh nhật Bé Na'"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                        Gửi Yêu Cầu Đặt Bánh
+                    </button>
+                </div>
+            </form>
+            <div id="formMessage" class="mt-6 text-center"></div>
+        </div>
+    </section>
+
+    <footer id="contact" class="full-bleed-bg bg-blue-600 text-white py-10 md:py-16">
+        <div class="section-container text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 font-pacifico">Liên Hệ Với Chúng Tôi</h2>
+            <img src="https://placehold.co/100x100/FFFFFF/3B82F6?text=Friendly+Shark&font=Pacifico" alt="[Hình ảnh cá mập thân thiện]" class="mx-auto mb-4 h-20 w-20 rounded-full">
+            <p class="mb-2">Địa chỉ: 123 Đường Biển Xanh, Thành Phố Vui Vẻ</p>
+            <p class="mb-2">Điện thoại: <a href="tel:0123456789" class="hover:text-yellow-300">0123-456-789</a></p>
+            <p class="mb-6">Email: <a href="mailto:hello@camapconbakery.com" class="hover:text-yellow-300">hello@camapconbakery.com</a></p>
+            <div class="flex justify-center space-x-4 mb-6">
+                <a href="#" class="text-white hover:text-yellow-300 transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="#" class="text-white hover:text-yellow-300 transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.03998C6.48 2.03998 2 6.51998 2 12.03C2 17.06 5.26 21.21 9.94 21.9L9.98 21.89H10V14.89H7V12.04H10V9.52998C10 7.00998 11.42 5.21998 13.99 5.21998C15.19 5.21998 16.07 5.31998 16.42 5.36998L16.39 7.70998C16.39 7.70998 15.6 7.64998 14.97 7.64998C13.99 7.64998 13.47 8.10998 13.47 8.86998L13.45 9.52998H13.47V12.04H16.3L15.86 14.89H13.47V21.89C18.74 21.21 22 17.06 22 12.03C22 6.51998 17.52 2.03998 12 2.03998Z"/></svg>
+                </a>
+                <a href="#" class="text-white hover:text-yellow-300 transition duration-300">
+                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.98.636 3.804 1.702 5.302L2.056 22l4.643-1.648A9.932 9.932 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.614 0-3.14-.402-4.478-1.118l-.32-.19L3.85 19.95l1.27-3.355-.208-.336A7.947 7.947 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8zm0-13.5c-3.032 0-5.5 2.468-5.5 5.5s2.468 5.5 5.5 5.5 5.5-2.468 5.5-5.5-2.468-5.5-5.5-5.5zm0 9c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5zm0-5c-.827 0-1.5.673-1.5 1.5s.673 1.5 1.5 1.5 1.5-.673 1.5-1.5-.673-1.5-1.5-1.5z"/></svg>
+                </a>
+            </div>
+            <p class="text-sm text-blue-200">&copy; <span id="currentYear"></span> Tiệm Bánh Cá Mập Con. All Rights Reserved.</p>
+            <p class="text-xs text-blue-300 mt-1">Website được thiết kế với ❤️ bởi AI.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Smooth scroll for same-page navigation links and handling external page links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                const currentUrl = window.location.href.split('#')[0];
+                let targetUrl = '';
+                try {
+                    targetUrl = new URL(href, currentUrl).href.split('#')[0];
+                } catch (err) { // Handle cases where href might be just a hash like "#home"
+                    targetUrl = currentUrl;
+                }
+                const targetHash = href.includes('#') ? href.substring(href.indexOf('#')) : null;
+
+                if (mobileMenu) {
+                    mobileMenu.classList.add('hidden'); // Close mobile menu on any nav link click
+                }
+
+                if (currentUrl === targetUrl && targetHash) { // Same page, has hash
+                    const targetElement = document.querySelector(targetHash);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                // For different pages, or links without hash, let the browser handle default navigation (no e.preventDefault())
+            });
+        });
+
+
+        // Set current year in footer
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+        
+
+        // Image preview for order form
+        const cakeImageInput = document.getElementById('cakeImage');
+        const imagePreview = document.getElementById('imagePreview');
+        if (cakeImageInput && imagePreview) {
+            cakeImageInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.classList.remove('hidden');
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    imagePreview.src = "#";
+                    imagePreview.classList.add('hidden');
+                }
+            });
+        }
+
+        // Handle form submission (basic example, no actual backend)
+        const orderForm = document.getElementById('orderForm');
+        const formMessage = document.getElementById('formMessage');
+        if (orderForm && formMessage) {
+            orderForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent actual submission for this demo
+                
+                const nameInput = document.getElementById('name');
+                const phoneInput = document.getElementById('phone');
+                let name = '';
+                let phone = '';
+
+                if (nameInput) name = nameInput.value;
+                if (phoneInput) phone = phoneInput.value;
+
+
+                if (!name || !phone) {
+                    formMessage.innerHTML = '<p class="text-red-500">Vui lòng điền đầy đủ Họ Tên và Số Điện Thoại.</p>';
+                    return;
+                }
+
+                formMessage.innerHTML = '<p class="text-green-600 font-semibold">Yêu cầu của bạn đã được gửi! Chúng tôi sẽ liên hệ lại sớm. Cảm ơn bạn đã tin tưởng Tiệm Bánh Cá Mập Con!</p>';
+                orderForm.reset(); 
+                if(imagePreview) {
+                    imagePreview.src = "#";
+                    imagePreview.classList.add('hidden'); 
+                }
+
+                setTimeout(() => {
+                    formMessage.innerHTML = '';
+                }, 5000);
+            });
+        }
+
+    </script>
+</body>
+</html>
