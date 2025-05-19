@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiệm Bánh Cá Mập Con - Bánh Ngon Vui Nhộn!</title>
+    <link rel="icon" href="asset/Image/shark-logo.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
@@ -106,10 +107,12 @@
 
     <header class="bg-blue-500 shadow-lg sticky top-0 z-50">
         <div class="section-container py-3 px-4 md:px-6 flex justify-between items-center">
-            <a href="Index.html" class="flex items-center space-x-2"> <img src="asset/Image/shark-logo.png" alt="Logo Tiệm Bánh Cá Mập Con" class="h-12 md:h-14 rounded-lg"> </a>
+            <a href="index.html" class="flex items-center space-x-2"> <img src="asset/Image/shark-logo.png" alt="Logo Tiệm Bánh Cá Mập Con" class="h-12 md:h-14 rounded-lg">
+            </a>
             <nav class="hidden md:flex space-x-4">
                 <a href="#home" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Trang Chủ</a>
-                <a href="maubanh.html" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Mẫu Bánh</a> <a href="#order" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Đặt Bánh</a>
+                <a href="maubanh.html" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Mẫu Bánh</a>
+                <a href="#order" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Đặt Bánh</a>
                 <a href="#contact" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Liên Hệ</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
@@ -118,7 +121,8 @@
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-blue-500">
             <a href="#home" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Trang Chủ</a>
-            <a href="maubanh.html" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Mẫu Bánh</a> <a href="#order" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Đặt Bánh</a>
+            <a href="maubanh.html" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Mẫu Bánh</a>
+            <a href="#order" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Đặt Bánh</a>
             <a href="#contact" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Liên Hệ</a>
         </div>
     </header>
@@ -245,32 +249,39 @@
         }
 
         // Smooth scroll for same-page navigation links and handling external page links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('nav a, a[href^="#order"]').forEach(anchor => { // Include order button in hero
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                const currentUrl = window.location.href.split('#')[0];
-                let targetUrl = '';
-                try {
-                    targetUrl = new URL(href, currentUrl).href.split('#')[0];
-                } catch (err) { // Handle cases where href might be just a hash like "#home"
-                    targetUrl = currentUrl;
+                
+                if (mobileMenu && !this.closest('#mobile-menu a')) { // Don't toggle if clicking link within mobile menu
+                    mobileMenu.classList.add('hidden');
                 }
-                const targetHash = href.includes('#') ? href.substring(href.indexOf('#')) : null;
+                
+                // Check if it's an internal link to another page or an anchor on the current page
+                if (href.startsWith('index.html#') || href.startsWith('maubanh.html#') || href.startsWith('#')) {
+                    const currentPath = window.location.pathname.split("/").pop() || 'index.html'; // Default to index.html if path is empty
+                    const targetFile = href.split("#")[0];
+                    const targetHash = href.includes('#') ? href.substring(href.indexOf('#')) : null;
 
-                if (mobileMenu) {
-                    mobileMenu.classList.add('hidden'); // Close mobile menu on any nav link click
-                }
-
-                if (currentUrl === targetUrl && targetHash) { // Same page, has hash
-                    const targetElement = document.querySelector(targetHash);
-                    if (targetElement) {
-                        e.preventDefault();
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                    // If it's an anchor on the current page or linking to current page's anchor
+                    if ((!targetFile || currentPath === targetFile) && targetHash) {
+                        const targetElement = document.querySelector(targetHash);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    } else if (targetFile && currentPath !== targetFile) {
+                        // If it's a link to another page (with or without hash), let the browser handle it.
+                        // No e.preventDefault() here.
+                    }
+                } else {
+                     // For absolute URLs or other types of links, let the browser handle default navigation
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
                     }
                 }
-                // For different pages, or links without hash, let the browser handle default navigation (no e.preventDefault())
             });
         });
 
