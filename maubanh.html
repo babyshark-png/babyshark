@@ -281,6 +281,7 @@
             top: 0;
             right: -400px; /* Start off-screen */
             width: 380px; /* Width of the cart */
+            max-width: 90vw; /* Ensure it's not too wide on small screens */
             height: 100%;
             background-color: white;
             box-shadow: -5px 0 15px rgba(0,0,0,0.2);
@@ -339,6 +340,7 @@
             object-fit: cover;
             border-radius: 8px;
             margin-right: 1rem;
+            border: 1px solid #eee;
         }
         .cart-item-details {
             flex-grow: 1;
@@ -347,16 +349,19 @@
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
+            color: var(--ocean-blue-deep);
         }
-        .cart-item-details p {
+        .cart-item-details p.item-price { /* Class for price */
             font-size: 0.9rem;
-            color: var(--shark-fin-grey);
+            color: var(--coral-pink);
+            font-weight: 500;
             margin-bottom: 0.25rem;
         }
         .cart-item-quantity {
             display: flex;
             align-items: center;
             font-size: 0.9rem;
+            color: var(--shark-fin-grey);
         }
         .cart-item-quantity input {
             width: 40px;
@@ -365,6 +370,7 @@
             border-radius: 4px;
             margin: 0 0.5rem;
             padding: 0.25rem;
+            color: var(--ocean-blue-deep);
         }
         .cart-item-remove-btn {
             background: none;
@@ -387,7 +393,7 @@
         .cart-footer {
             padding: 1.5rem;
             border-top: 1px solid #e0e0e0;
-            background-color: #f9f9f9;
+            background-color: #f8f9fa; /* Light grey background */
         }
         .cart-total {
             display: flex;
@@ -395,6 +401,7 @@
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 1rem;
+            color: var(--ocean-blue-deep);
         }
         .cart-checkout-btn {
             display: block;
@@ -408,13 +415,15 @@
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .cart-checkout-btn:hover {
             background-color: #e75480; /* Darker pink */
+            transform: scale(1.02);
         }
         .cart-icon-container {
             position: relative;
+            cursor: pointer;
         }
         .cart-count {
             position: absolute;
@@ -427,6 +436,9 @@
             font-size: 0.75rem;
             font-weight: bold;
             border: 1px solid white;
+            min-width: 20px; /* Ensure badge is visible even with 1 digit */
+            text-align: center;
+            line-height: 1.2;
         }
 
 
@@ -469,7 +481,7 @@
     <div id="cart-modal" class="cart-modal">
         <div class="cart-header">
             <h2>Giỏ Hàng Của Bạn</h2>
-            <button id="cart-close" class="cart-close-btn">&times;</button>
+            <button id="cart-close" class="cart-close-btn" aria-label="Đóng giỏ hàng">×</button>
         </div>
         <div id="cart-body" class="cart-body">
             </div>
@@ -633,7 +645,7 @@
              <div class="mb-8 reveal-on-scroll slide-in-up">
                 <h4 class="text-xl font-semibold mb-3">Tìm Chúng Tôi Trên Bản Đồ:</h4>
                 <div class="w-full max-w-md h-64 bg-gray-700 rounded-lg mx-auto flex items-center justify-center text-gray-400 border-2 border-blue-400 shadow-lg overflow-hidden">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.339020047088!2d106.7291304153034!3d11.08893865727038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174c5274509887b%3A0x963342353392808!2zVHLGsOG7nW5nIFRIQ1MgVMOibiBCw6xuaA!5e0!3m2!1svi!2s!4v1684500000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.1234567890123!2d106.70000000000001!3d10.800000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ4JzAwLjAiTiAxMDbCsDQyJzAwLjAiRQ!5e0!3m2!1svi!2s!4v1620000000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <p class="text-md text-blue-200">© <span id="currentYear"></span> Tiệm Bánh Cá Mập Con. All Rights Reserved.</p>
@@ -991,7 +1003,7 @@
             function updateCartUI() {
                 if (!cartBody || !cartTotalAmount || !cartCountBadge || !cartCountBadgeMobile) return;
 
-                cartBody.innerHTML = ''; // Clear previous items
+                cartBody.innerHTML = ''; 
                 if (cart.length === 0) {
                     cartBody.innerHTML = '<p class="cart-empty-message">Giỏ hàng của bạn đang trống!</p>';
                 } else {
@@ -999,16 +1011,16 @@
                         const cartItemEl = document.createElement('div');
                         cartItemEl.classList.add('cart-item');
                         cartItemEl.innerHTML = `
-                            <img src="${item.image}" alt="${item.name}">
+                            <img src="${item.image}" alt="${item.name}" onerror="this.onerror=null;this.src='https://placehold.co/70x70/E0E0E0/909090?text=Ảnh+Lỗi';">
                             <div class="cart-item-details">
                                 <h4>${item.name}</h4>
-                                <p>${parseInt(item.price).toLocaleString('vi-VN')} VNĐ</p>
+                                <p class="item-price">${parseInt(item.price).toLocaleString('vi-VN')} VNĐ</p>
                                 <div class="cart-item-quantity">
                                     Số lượng: 
                                     <input type="number" value="${item.quantity}" min="1" data-id="${item.id}" class="cart-item-qty-input w-12 text-center border rounded">
                                 </div>
                             </div>
-                            <button class="cart-item-remove-btn" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button>
+                            <button class="cart-item-remove-btn" data-id="${item.id}" aria-label="Xóa ${item.name} khỏi giỏ hàng"><i class="fas fa-trash-alt"></i></button>
                         `;
                         cartBody.appendChild(cartItemEl);
                     });
@@ -1016,7 +1028,6 @@
                 updateCartTotal();
                 updateCartCount();
 
-                // Add event listeners for new elements
                 document.querySelectorAll('.cart-item-qty-input').forEach(input => {
                     input.addEventListener('change', handleQuantityChange);
                 });
@@ -1049,10 +1060,18 @@
             function handleAddItem(event) {
                 const button = event.currentTarget;
                 const card = button.closest('.cake-gallery-card');
+                if (!card) return; // Should not happen if button is inside card
+
                 const itemId = card.dataset.id;
                 const itemName = card.dataset.name;
                 const itemPrice = parseInt(card.dataset.price);
                 const itemImage = card.dataset.image;
+
+                if (!itemId || !itemName || isNaN(itemPrice) || !itemImage) {
+                    console.error("Thông tin sản phẩm không đầy đủ:", card.dataset);
+                    return;
+                }
+
 
                 const existingItem = cart.find(item => item.id === itemId);
                 if (existingItem) {
@@ -1061,9 +1080,8 @@
                     cart.push({ id: itemId, name: itemName, price: itemPrice, image: itemImage, quantity: 1 });
                 }
                 saveCart();
-                updateCartUI(); // Update UI immediately
-                openCart(); // Open cart after adding
-                 // Show a quick confirmation
+                updateCartUI(); 
+                openCart(); 
                 const confirmation = document.createElement('div');
                 confirmation.textContent = `${itemName} đã được thêm vào giỏ!`;
                 confirmation.className = 'fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg z-[1001]';
@@ -1079,7 +1097,7 @@
                 const itemInCart = cart.find(item => item.id === itemId);
                 if (itemInCart && newQuantity > 0) {
                     itemInCart.quantity = newQuantity;
-                } else if (itemInCart && newQuantity <= 0) { // Remove if quantity is 0 or less
+                } else if (itemInCart && newQuantity <= 0) { 
                     cart = cart.filter(item => item.id !== itemId);
                 }
                 saveCart();
@@ -1100,11 +1118,9 @@
                 button.addEventListener('click', handleAddItem);
             });
 
-            // Initial cart UI update on page load
             updateCartUI();
 
 
-            // Filter Cakes Logic
             const filterButtons = document.querySelectorAll('.filter-button');
             const cakeCards = document.querySelectorAll('.cake-gallery-card');
 
@@ -1118,7 +1134,7 @@
                         const categories = card.getAttribute('data-category').split(' ');
                         if (filterValue === 'all' || categories.includes(filterValue)) {
                             card.style.display = 'block'; 
-                            setTimeout(() => card.classList.add('is-visible'), 50); // Re-trigger animation
+                            setTimeout(() => card.classList.add('is-visible'), 50); 
                         } else {
                             card.style.display = 'none';
                             card.classList.remove('is-visible'); 
