@@ -249,6 +249,33 @@
         .header-nav-link.active-link::after {
              width: 75%;
         }
+        
+        /* Cake Categories/Filters Placeholder */
+        .cake-filters {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .filter-button {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--bakery-cream);
+            border: 1px solid var(--ocean-blue-light);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px; /* pill shape */
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-button:hover, .filter-button.active {
+            background-color: var(--coral-pink);
+            color: white;
+            border-color: var(--coral-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255,105,180,0.3);
+        }
+
 
     </style>
 </head>
@@ -300,6 +327,14 @@
         <div class="section-container text-center">
             <h1 class="text-4xl md:text-5xl font-bold text-blue-700 mb-4 font-pacifico animate-bounce-in">Thư Viện Bánh Xinh</h1>
             <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">Khám phá những mẫu bánh ngon và đẹp mắt nhất từ Tiệm Bánh Cá Mập Con! Mỗi chiếc bánh là một câu chuyện ngọt ngào.</p>
+        
+            <div class="cake-filters mt-10 reveal-on-scroll slide-in-up">
+                <button class="filter-button active">Tất Cả</button>
+                <button class="filter-button">Sinh Nhật</button>
+                <button class="filter-button">Cupcake</button>
+                <button class="filter-button">Sự Kiện</button>
+                <button class="filter-button">Theo Mùa</button>
+            </div>
         </div>
     </div>
 
@@ -323,48 +358,54 @@
                     <img src="asset/Image/banh-sinh-nhat-ca-map.jpg" alt="Bánh kem cá mập xanh biếc" class="w-full h-72 object-cover">
                     <div class="card-content">
                         <h3 class="text-2xl font-semibold mb-1">Bánh Cá Mập Đại Dương</h3>
-                        <p class="text-sm text-gray-600 mt-1">Một thế giới biển cả thu nhỏ, hoàn hảo cho các bé trai năng động.</p>
-                        <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
+                        <p class="text-sm text-gray-600 mt-1">Một thế giới biển cả thu nhỏ, hoàn hảo cho các bé trai năng động. Kem vani, cốt bánh sô cô la.</p>
+                        <p class="text-lg font-semibold text-pink-500 mt-2">Giá: 450.000 VNĐ</p>
+                        <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors stylish-button-enhanced relative overflow-hidden">Thêm vào giỏ <i class="fas fa-cart-plus ml-1"></i><span class="ripple-container"></span></button>
                     </div>
                 </div>
                 <div class="cake-gallery-card reveal-on-scroll slide-in-up" style="transition-delay: 0.1s;">
                     <img src="asset/Image/banh-kem-dau-tay.jpg" alt="Bánh kem dâu tây tươi mát" class="w-full h-72 object-cover">
                     <div class="card-content">
                         <h3 class="text-2xl font-semibold mb-1">Bánh Kem Dâu Tây Tươi</h3>
-                        <p class="text-sm text-gray-600 mt-1">Vị dâu tây ngọt ngào kết hợp kem tươi béo ngậy, tan chảy đầu lưỡi.</p>
-                         <button class="mt-3 bg-pink-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-pink-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
+                        <p class="text-sm text-gray-600 mt-1">Vị dâu tây Đà Lạt ngọt ngào kết hợp kem tươi Pháp béo ngậy, tan chảy đầu lưỡi.</p>
+                        <p class="text-lg font-semibold text-pink-500 mt-2">Giá: 380.000 VNĐ</p>
+                         <button class="mt-3 bg-pink-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-pink-600 transition-colors stylish-button-enhanced relative overflow-hidden">Thêm vào giỏ <i class="fas fa-cart-plus ml-1"></i><span class="ripple-container"></span></button>
                     </div>
                 </div>
                 <div class="cake-gallery-card reveal-on-scroll slide-in-right" style="transition-delay: 0.2s;">
                     <img src="asset/Image/cupcake.jpg" alt="Bộ sưu tập cupcake King Kong" class="w-full h-72 object-cover">
                     <div class="card-content">
-                        <h3 class="text-2xl font-semibold mb-1">Cupcake King Kong</h3>
-                        <p class="text-sm text-gray-600 mt-1">Những chiếc cupcake nhỏ xinh với chủ đề King Kong độc đáo cho fan hâm mộ.</p>
-                         <button class="mt-3 bg-yellow-500 text-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-yellow-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
+                        <h3 class="text-2xl font-semibold mb-1">Cupcake King Kong (Set 6)</h3>
+                        <p class="text-sm text-gray-600 mt-1">Những chiếc cupcake nhỏ xinh với chủ đề King Kong độc đáo cho fan hâm mộ điện ảnh.</p>
+                        <p class="text-lg font-semibold text-pink-500 mt-2">Giá: 250.000 VNĐ/set</p>
+                         <button class="mt-3 bg-yellow-500 text-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-yellow-600 transition-colors stylish-button-enhanced relative overflow-hidden">Thêm vào giỏ <i class="fas fa-cart-plus ml-1"></i><span class="ripple-container"></span></button>
                     </div>
                 </div>
                 <div class="cake-gallery-card reveal-on-scroll slide-in-left" style="transition-delay: 0.3s;">
                     <img src="https://placehold.co/600x400/A5D6A7/0A2463?text=Bánh+Rừng+San+Hô+Kỳ+Thú" alt="Bánh kem chủ đề rừng san hô kỳ thú" class="w-full h-72 object-cover">
                     <div class="card-content">
                         <h3 class="text-2xl font-semibold mb-1">Bánh Rừng San Hô Kỳ Thú</h3>
-                        <p class="text-sm text-gray-600 mt-1">Khám phá vẻ đẹp rực rỡ của đại dương với bánh kem trang trí san hô.</p>
-                         <button class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
+                        <p class="text-sm text-gray-600 mt-1">Khám phá vẻ đẹp rực rỡ của đại dương với bánh kem trang trí san hô từ đường fondant.</p>
+                        <p class="text-lg font-semibold text-pink-500 mt-2">Giá: 520.000 VNĐ</p>
+                         <button class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 transition-colors stylish-button-enhanced relative overflow-hidden">Thêm vào giỏ <i class="fas fa-cart-plus ml-1"></i><span class="ripple-container"></span></button>
                     </div>
                 </div>
                 <div class="cake-gallery-card reveal-on-scroll slide-in-up" style="transition-delay: 0.4s;">
                     <img src="https://placehold.co/600x400/CE93D8/A0522D?text=Bánh+Nàng+Tiên+Cá+Mơ+Mộng" alt="Bánh kem nàng tiên cá mơ mộng" class="w-full h-72 object-cover">
                     <div class="card-content">
                         <h3 class="text-2xl font-semibold mb-1">Bánh Nàng Tiên Cá Mơ Mộng</h3>
-                        <p class="text-sm text-gray-600 mt-1">Thiết kế lãng mạn, đưa bạn vào thế giới cổ tích dưới biển sâu.</p>
-                         <button class="mt-3 bg-purple-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-purple-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
+                        <p class="text-sm text-gray-600 mt-1">Thiết kế lãng mạn với nàng tiên cá và các chi tiết biển cả, đưa bạn vào thế giới cổ tích.</p>
+                        <p class="text-lg font-semibold text-pink-500 mt-2">Giá: 600.000 VNĐ</p>
+                         <button class="mt-3 bg-purple-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-purple-600 transition-colors stylish-button-enhanced relative overflow-hidden">Thêm vào giỏ <i class="fas fa-cart-plus ml-1"></i><span class="ripple-container"></span></button>
                     </div>
                 </div>
                 <div class="cake-gallery-card reveal-on-scroll slide-in-right" style="transition-delay: 0.5s;">
                     <img src="https://placehold.co/600x400/FFAB91/A0522D?text=Cupcake+Biển+Xanh+Cát+Trắng" alt="Bánh cupcake biển xanh cát trắng" class="w-full h-72 object-cover">
                     <div class="card-content">
-                        <h3 class="text-2xl font-semibold mb-1">Cupcake Biển Xanh Cát Trắng</h3>
-                        <p class="text-sm text-gray-600 mt-1">Những chiếc bánh nhỏ xinh mang hương vị của biển cả và mùa hè.</p>
-                         <button class="mt-3 bg-orange-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-orange-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
+                        <h3 class="text-2xl font-semibold mb-1">Cupcake Biển Xanh (Set 6)</h3>
+                        <p class="text-sm text-gray-600 mt-1">Những chiếc bánh nhỏ xinh mang hương vị của biển cả và mùa hè, trang trí vỏ sò, sao biển.</p>
+                        <p class="text-lg font-semibold text-pink-500 mt-2">Giá: 280.000 VNĐ/set</p>
+                         <button class="mt-3 bg-orange-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-orange-600 transition-colors stylish-button-enhanced relative overflow-hidden">Thêm vào giỏ <i class="fas fa-cart-plus ml-1"></i><span class="ripple-container"></span></button>
                     </div>
                 </div>
             </div>
@@ -384,6 +425,11 @@
             <p class="mb-3 text-lg">Địa chỉ: 123 Đường Biển Xanh, Thành Phố Vui Vẻ, Việt Nam</p>
             <p class="mb-3 text-lg">Điện thoại: <a href="tel:0123456789" class="hover:text-yellow-300 transition-colors">0123-456-789</a></p>
             <p class="mb-8 text-lg">Email: <a href="mailto:hello@camapconbakery.com" class="hover:text-yellow-300 transition-colors">hello@camapconbakery.com</a></p>
+            <div class="mb-8">
+                <h4 class="text-xl font-semibold mb-3">Giờ Mở Cửa:</h4>
+                <p>Thứ 2 - Thứ 7: 8:00 AM - 8:00 PM</p>
+                <p>Chủ Nhật: 9:00 AM - 6:00 PM (Vui lòng đặt trước)</p>
+            </div>
             <div class="flex justify-center space-x-6 mb-8">
                 <a href="#" aria-label="Facebook của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
                     <i class="fab fa-facebook fa-2x"></i>
@@ -394,6 +440,12 @@
                 <a href="#" aria-label="Tiktok của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
                      <i class="fab fa-tiktok fa-2x"></i>
                 </a>
+            </div>
+             <div class="mb-8 reveal-on-scroll slide-in-up">
+                <h4 class="text-xl font-semibold mb-3">Tìm Chúng Tôi Trên Bản Đồ:</h4>
+                <div class="w-full max-w-md h-64 bg-gray-700 rounded-lg mx-auto flex items-center justify-center text-gray-400 border-2 border-blue-400 shadow-lg">
+                    <p class="p-4">Đây là nơi bạn có thể nhúng Google Maps. <br> Ví dụ: tìm kiếm "Tiệm Bánh Cá Mập Con, 123 Đường Biển Xanh" trên Google Maps, sau đó chọn "Chia sẻ" > "Nhúng bản đồ" và sao chép mã HTML vào đây.</p>
+                </div>
             </div>
             <p class="text-md text-blue-200">&copy; <span id="currentYear"></span> Tiệm Bánh Cá Mập Con. All Rights Reserved.</p>
             <p class="text-sm text-blue-300 mt-2">Website được thiết kế với <i class="fas fa-heart text-red-400"></i> bởi AI.</p>
@@ -449,7 +501,6 @@
                     scene.add(particles);
 
                     window.addEventListener('resize', onHeroStrip3DResize, false);
-                    // Không gọi animate ở đây, observer sẽ làm
                 }
                 
                 function onHeroStrip3DResize() {
@@ -464,13 +515,12 @@
                 }
 
                 let mouseX_strip = 0;
-                if (parentSection) { // Kiểm tra parentSection tồn tại
+                if (parentSection) { 
                     parentSection.addEventListener('mousemove', (event) => { 
                         const rect = parentSection.getBoundingClientRect();
                         mouseX_strip = ((event.clientX - rect.left) / rect.width) * 2 - 1;
                     });
                 }
-
 
                 function animateHeroStrip3D() {
                     animationFrameId_HeroStrip3D = requestAnimationFrame(animateHeroStrip3D);
@@ -592,7 +642,7 @@
                              setupSugarCrystalCanvasMaubanh();
                              if(sugarAnimationIdMaubanh) cancelAnimationFrame(sugarAnimationIdMaubanh); 
                              animateSugarCrystallineMaubanh();
-                        } else if (!sugarAnimationIdMaubanh) { // If already setup but stopped
+                        } else if (!sugarAnimationIdMaubanh) { 
                             animateSugarCrystallineMaubanh();
                         }
                     } else {
@@ -643,13 +693,11 @@
                 });
             }
 
-            // Active link highlighting and smooth scroll
             const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
-            const sections = Array.from(document.querySelectorAll('section[id]')); // Chuyển NodeList thành Array
-             // Thêm section hero của dải ảnh vào danh sách sections để active link
+            const sections = Array.from(document.querySelectorAll('section[id]')); 
             const heroStripSection = document.querySelector('.interactive-image-strip-section');
-            if (heroStripSection && !heroStripSection.id) heroStripSection.id = 'hero-strip-maubanh'; // Gán ID nếu chưa có
-            if (heroStripSection) sections.unshift(heroStripSection); // Thêm vào đầu mảng
+            if (heroStripSection && !heroStripSection.id) heroStripSection.id = 'hero-strip-maubanh'; 
+            if (heroStripSection) sections.unshift(heroStripSection); 
 
             function changeNavActiveStateMaubanh() {
                 let index = sections.length;
@@ -664,11 +712,10 @@
                     if (activeLink) {
                         activeLink.classList.add('active-link');
                     } else if (currentSectionId === 'hero-strip-maubanh' || sections[index] === heroStripSection) {
-                        // Đặc biệt xử lý link "Mẫu Bánh" khi ở đầu trang maubanh.html
                          const mauBanhLink = document.querySelector('header nav a[href="maubanh.html"], #mobile-menu a[href="maubanh.html"]');
                          if(mauBanhLink) mauBanhLink.classList.add('active-link');
                     }
-                } else if (window.location.pathname.includes('maubanh.html')) { // Nếu không có section nào active, và đang ở trang mẫu bánh
+                } else if (window.location.pathname.includes('maubanh.html')) { 
                      const mauBanhLink = document.querySelector('header nav a[href="maubanh.html"], #mobile-menu a[href="maubanh.html"]');
                      if(mauBanhLink) mauBanhLink.classList.add('active-link');
                 }
@@ -688,8 +735,7 @@
 
                     if (href.startsWith('#') || (href.startsWith('Index.html#') && window.location.pathname.includes('Index.html')) ) { 
                         let targetHash = href;
-                        if(href.startsWith('Index.html#')) { // Nếu là link từ trang khác về Index.html và có hash
-                            // Không làm gì ở đây, để trình duyệt tự chuyển trang và cuộn
+                        if(href.startsWith('Index.html#')) { 
                             return;
                         }
                         
