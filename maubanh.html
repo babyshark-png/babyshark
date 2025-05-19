@@ -35,6 +35,9 @@
             color: var(--bakery-cream); 
             scroll-behavior: smooth;
         }
+        body.cart-open-no-scroll { /* Thêm class này khi modal mở để ngăn cuộn body */
+            overflow: hidden;
+        }
 
         .font-pacifico {
             font-family: 'Pacifico', cursive;
@@ -275,59 +278,79 @@
             box-shadow: 0 4px 10px rgba(255,105,180,0.3);
         }
 
-        /* Shopping Cart Modal */
+        /* Shopping Cart Modal - Cập nhật CSS */
+        .cart-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6); /* Tăng độ mờ */
+            z-index: 999; 
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .cart-modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .cart-modal {
             position: fixed;
             top: 0;
-            right: -400px; /* Start off-screen */
-            width: 380px; /* Width of the cart */
-            max-width: 90vw; /* Ensure it's not too wide on small screens */
+            right: -100%; /* Bắt đầu ngoài màn hình hoàn toàn */
+            width: 400px; 
+            max-width: 90vw; 
             height: 100%;
-            background-color: white;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            background-color: #ffffff; 
+            box-shadow: -8px 0 25px rgba(0,0,0,0.2); /* Tăng shadow */
             z-index: 1000;
-            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Easing mượt hơn */
             display: flex;
             flex-direction: column;
-            color: var(--ocean-blue-deep);
+            color: var(--ocean-blue-deep); 
         }
         .cart-modal.open {
             right: 0;
         }
         .cart-header {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 1.25rem 1.5rem; 
+            border-bottom: 1px solid #e5e7eb; 
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: #f8f9fa; 
         }
         .cart-header h2 {
             font-family: 'Pacifico', cursive;
-            font-size: 1.8rem;
+            font-size: 2rem; 
             color: var(--coral-pink);
         }
         .cart-close-btn {
             background: none;
             border: none;
-            font-size: 1.8rem;
+            font-size: 2rem; 
             cursor: pointer;
             color: var(--shark-fin-grey);
-            transition: color 0.2s;
+            transition: color 0.2s, transform 0.2s;
         }
         .cart-close-btn:hover {
             color: var(--coral-pink);
+            transform: rotate(90deg);
         }
         .cart-body {
-            flex-grow: 1;
-            overflow-y: auto;
+            flex-grow: 1; /* Quan trọng: để body chiếm không gian và footer đẩy xuống */
+            overflow-y: auto; 
             padding: 1.5rem;
+            /* Thêm padding-bottom để không bị footer che mất item cuối nếu footer không sticky */
+            /* padding-bottom: 120px;  Nếu footer không sticky bên trong modal */
         }
         .cart-item {
             display: flex;
-            align-items: center;
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px dashed #eee;
+            border-bottom: 1px dashed #e0e0e0; 
         }
         .cart-item:last-child {
             margin-bottom: 0;
@@ -335,27 +358,36 @@
             border-bottom: none;
         }
         .cart-item img {
-            width: 70px;
-            height: 70px;
+            width: 80px; 
+            height: 80px;
             object-fit: cover;
             border-radius: 8px;
             margin-right: 1rem;
-            border: 1px solid #eee;
+            border: 1px solid #f0f0f0;
         }
         .cart-item-details {
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
         }
         .cart-item-details h4 {
-            font-size: 1rem;
+            font-size: 1.05rem; 
             font-weight: 600;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.3rem;
             color: var(--ocean-blue-deep);
         }
-        .cart-item-details p.item-price { /* Class for price */
-            font-size: 0.9rem;
+        .cart-item-details p.item-price { 
+            font-size: 0.95rem;
             color: var(--coral-pink);
             font-weight: 500;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem; 
+        }
+        .cart-item-controls { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
         }
         .cart-item-quantity {
             display: flex;
@@ -363,62 +395,81 @@
             font-size: 0.9rem;
             color: var(--shark-fin-grey);
         }
+        .cart-item-quantity button { 
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            color: var(--ocean-blue-deep);
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .cart-item-quantity button:hover {
+            background-color: #e0e0e0;
+        }
         .cart-item-quantity input {
-            width: 40px;
+            width: 45px; 
             text-align: center;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin: 0 0.5rem;
-            padding: 0.25rem;
+            padding: 0.35rem; 
             color: var(--ocean-blue-deep);
+            font-size: 0.9rem;
         }
         .cart-item-remove-btn {
             background: none;
             border: none;
-            color: var(--coral-pink);
-            font-size: 1.1rem;
+            color: #cc0000; 
+            font-size: 1.2rem; 
             cursor: pointer;
-            margin-left: 1rem;
-            transition: color 0.2s;
+            transition: color 0.2s, transform 0.2s;
         }
         .cart-item-remove-btn:hover {
-            color: red;
+            color: #990000;
+            transform: scale(1.1);
         }
         .cart-empty-message {
             text-align: center;
-            font-size: 1rem;
+            font-size: 1.1rem; 
             color: var(--shark-fin-grey);
-            padding: 2rem 0;
+            padding: 3rem 1rem; 
         }
         .cart-footer {
             padding: 1.5rem;
-            border-top: 1px solid #e0e0e0;
-            background-color: #f8f9fa; /* Light grey background */
+            border-top: 2px solid var(--coral-pink); 
+            background-color: #f8f9fa; 
+            /* Không cần sticky ở đây nữa vì cart-body sẽ flex-grow */
+            /* position: sticky; */
+            /* bottom: 0; */
+            /* left: 0; */
+            /* width: 100%; */
         }
         .cart-total {
             display: flex;
             justify-content: space-between;
-            font-size: 1.2rem;
+            font-size: 1.3rem; 
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             color: var(--ocean-blue-deep);
         }
         .cart-checkout-btn {
             display: block;
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.9rem; 
             background-color: var(--coral-pink);
             color: white;
             text-align: center;
             border: none;
             border-radius: 8px;
-            font-size: 1.1rem;
+            font-size: 1.15rem; 
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
         }
         .cart-checkout-btn:hover {
-            background-color: #e75480; /* Darker pink */
+            background-color: #e75480; 
             transform: scale(1.02);
         }
         .cart-icon-container {
@@ -436,7 +487,7 @@
             font-size: 0.75rem;
             font-weight: bold;
             border: 1px solid white;
-            min-width: 20px; /* Ensure badge is visible even with 1 digit */
+            min-width: 20px; 
             text-align: center;
             line-height: 1.2;
         }
@@ -445,7 +496,8 @@
     </style>
 </head>
 <body class="bg-sky-100 text-gray-800 page-animated-gradient-bg"> 
-     <header class="bg-blue-500 shadow-lg sticky top-0 z-50">
+    <div id="cart-modal-overlay" class="cart-modal-overlay"></div>
+    <header class="bg-blue-500 shadow-lg sticky top-0 z-50">
         <div class="section-container py-3 px-4 md:px-6 flex justify-between items-center">
             <a href="Index.html" class="flex items-center space-x-2">
                 <img src="asset/Image/shark-logo.png" alt="Logo Tiệm Bánh Cá Mập Con" class="h-16 md:h-20 rounded-lg transform transition-transform duration-300 hover:scale-110">
@@ -455,17 +507,17 @@
                 <a href="maubanh.html" class="header-nav-link active-link">Mẫu Bánh</a>
                 <a href="Index.html#order" class="header-nav-link">Đặt Bánh</a>
                 <a href="Index.html#contact" class="header-nav-link">Liên Hệ</a>
-                <button id="cart-icon-btn" class="ml-4 text-white hover:text-yellow-300 transition-colors cart-icon-container">
+                <button id="cart-icon-btn" aria-label="Mở giỏ hàng" class="ml-4 text-white hover:text-yellow-300 transition-colors cart-icon-container">
                     <i class="fas fa-shopping-cart fa-lg"></i>
                     <span id="cart-count-badge" class="cart-count hidden">0</span>
                 </button>
             </nav>
             <div class="md:hidden flex items-center">
-                 <button id="cart-icon-btn-mobile" class="text-white mr-3 cart-icon-container">
+                 <button id="cart-icon-btn-mobile" aria-label="Mở giỏ hàng" class="text-white mr-3 cart-icon-container">
                     <i class="fas fa-shopping-cart fa-lg"></i>
                     <span id="cart-count-badge-mobile" class="cart-count hidden">0</span>
                 </button>
-                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                <button id="mobile-menu-button" class="text-white focus:outline-none" aria-label="Mở menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
@@ -478,13 +530,14 @@
         </div>
     </header>
 
-    <div id="cart-modal" class="cart-modal">
+    <div id="cart-modal" class="cart-modal" role="dialog" aria-modal="true" aria-labelledby="cart-heading">
         <div class="cart-header">
-            <h2>Giỏ Hàng Của Bạn</h2>
+            <h2 id="cart-heading" class="font-pacifico">Giỏ Hàng Của Bạn</h2>
             <button id="cart-close" class="cart-close-btn" aria-label="Đóng giỏ hàng">×</button>
         </div>
         <div id="cart-body" class="cart-body">
-            </div>
+            <p class="cart-empty-message">Giỏ hàng của bạn đang trống!</p> 
+        </div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Tổng cộng:</span>
@@ -982,6 +1035,7 @@
 
             // --- Shopping Cart Logic ---
             const cartModal = document.getElementById('cart-modal');
+            const cartModalOverlay = document.getElementById('cart-modal-overlay'); // Thêm overlay
             const cartIconBtn = document.getElementById('cart-icon-btn');
             const cartIconBtnMobile = document.getElementById('cart-icon-btn-mobile');
             const cartCloseBtn = document.getElementById('cart-close');
@@ -995,11 +1049,20 @@
 
             function openCart() {
                 if(cartModal) cartModal.classList.add('open');
+                if(cartModalOverlay) cartModalOverlay.classList.add('open'); // Mở overlay
+                document.body.classList.add('cart-open-no-scroll'); // Ngăn cuộn body
                 updateCartUI();
             }
             function closeCart() {
                 if(cartModal) cartModal.classList.remove('open');
+                if(cartModalOverlay) cartModalOverlay.classList.remove('open'); // Đóng overlay
+                document.body.classList.remove('cart-open-no-scroll'); // Cho phép cuộn body lại
             }
+            
+            if(cartModalOverlay) { // Thêm sự kiện click cho overlay để đóng giỏ hàng
+                cartModalOverlay.addEventListener('click', closeCart);
+            }
+
             function updateCartUI() {
                 if (!cartBody || !cartTotalAmount || !cartCountBadge || !cartCountBadgeMobile) return;
 
@@ -1011,16 +1074,19 @@
                         const cartItemEl = document.createElement('div');
                         cartItemEl.classList.add('cart-item');
                         cartItemEl.innerHTML = `
-                            <img src="${item.image}" alt="${item.name}" onerror="this.onerror=null;this.src='https://placehold.co/70x70/E0E0E0/909090?text=Ảnh+Lỗi';">
+                            <img src="${item.image}" alt="${item.name}" onerror="this.onerror=null;this.src='https://placehold.co/80x80/E0E0E0/909090?text=Ảnh+Lỗi';">
                             <div class="cart-item-details">
                                 <h4>${item.name}</h4>
                                 <p class="item-price">${parseInt(item.price).toLocaleString('vi-VN')} VNĐ</p>
-                                <div class="cart-item-quantity">
-                                    Số lượng: 
-                                    <input type="number" value="${item.quantity}" min="1" data-id="${item.id}" class="cart-item-qty-input w-12 text-center border rounded">
+                                <div class="cart-item-controls">
+                                    <div class="cart-item-quantity">
+                                        <button class="qty-decrease-btn" data-id="${item.id}" aria-label="Giảm số lượng ${item.name}">-</button>
+                                        <input type="number" value="${item.quantity}" min="1" data-id="${item.id}" class="cart-item-qty-input w-12 text-center border rounded" aria-label="Số lượng ${item.name}">
+                                        <button class="qty-increase-btn" data-id="${item.id}" aria-label="Tăng số lượng ${item.name}">+</button>
+                                    </div>
+                                    <button class="cart-item-remove-btn" data-id="${item.id}" aria-label="Xóa ${item.name} khỏi giỏ hàng"><i class="fas fa-trash-alt"></i></button>
                                 </div>
                             </div>
-                            <button class="cart-item-remove-btn" data-id="${item.id}" aria-label="Xóa ${item.name} khỏi giỏ hàng"><i class="fas fa-trash-alt"></i></button>
                         `;
                         cartBody.appendChild(cartItemEl);
                     });
@@ -1030,11 +1096,39 @@
 
                 document.querySelectorAll('.cart-item-qty-input').forEach(input => {
                     input.addEventListener('change', handleQuantityChange);
+                    input.addEventListener('keyup', (e) => { // Thêm keyup để bắt Enter
+                        if (e.key === 'Enter') handleQuantityChange(e);
+                    });
                 });
                 document.querySelectorAll('.cart-item-remove-btn').forEach(btn => {
                     btn.addEventListener('click', handleRemoveItem);
                 });
+                document.querySelectorAll('.qty-decrease-btn').forEach(btn => {
+                    btn.addEventListener('click', handleQuantityButton);
+                });
+                document.querySelectorAll('.qty-increase-btn').forEach(btn => {
+                    btn.addEventListener('click', handleQuantityButton);
+                });
             }
+            
+            function handleQuantityButton(event) {
+                const itemId = event.currentTarget.dataset.id;
+                const itemInCart = cart.find(item => item.id === itemId);
+                if (!itemInCart) return;
+
+                if (event.currentTarget.classList.contains('qty-decrease-btn')) {
+                    if (itemInCart.quantity > 1) {
+                        itemInCart.quantity--;
+                    } else { // Nếu số lượng là 1 và nhấn giảm, thì xóa sản phẩm
+                        cart = cart.filter(item => item.id !== itemId);
+                    }
+                } else if (event.currentTarget.classList.contains('qty-increase-btn')) {
+                    itemInCart.quantity++;
+                }
+                saveCart();
+                updateCartUI();
+            }
+
 
             function updateCartTotal() {
                 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -1060,7 +1154,7 @@
             function handleAddItem(event) {
                 const button = event.currentTarget;
                 const card = button.closest('.cake-gallery-card');
-                if (!card) return; // Should not happen if button is inside card
+                if (!card) return; 
 
                 const itemId = card.dataset.id;
                 const itemName = card.dataset.name;
@@ -1071,7 +1165,6 @@
                     console.error("Thông tin sản phẩm không đầy đủ:", card.dataset);
                     return;
                 }
-
 
                 const existingItem = cart.find(item => item.id === itemId);
                 if (existingItem) {
@@ -1084,10 +1177,17 @@
                 openCart(); 
                 const confirmation = document.createElement('div');
                 confirmation.textContent = `${itemName} đã được thêm vào giỏ!`;
-                confirmation.className = 'fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg z-[1001]';
+                confirmation.className = 'fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg z-[1001] transform transition-all duration-300 ease-out opacity-0 translate-y-2';
                 document.body.appendChild(confirmation);
+                // Animation cho thông báo
                 setTimeout(() => {
-                    confirmation.remove();
+                    confirmation.classList.remove('opacity-0', 'translate-y-2');
+                    confirmation.classList.add('opacity-100', 'translate-y-0');
+                }, 10);
+                setTimeout(() => {
+                    confirmation.classList.remove('opacity-100', 'translate-y-0');
+                    confirmation.classList.add('opacity-0', 'translate-y-2');
+                    setTimeout(() => confirmation.remove(), 300);
                 }, 2000);
             }
 
