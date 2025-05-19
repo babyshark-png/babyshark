@@ -20,13 +20,13 @@
             --bakery-brown: #A0522D;
             --ocean-blue-deep: #0A2463; 
             --ocean-blue-light: #3E92CC;
-            --hero-title-blue: #00A9FF; /* Màu xanh biển cho tiêu đề hero */
+            --hero-title-blue: #00A9FF; 
             --coral-pink: #FF69B4;
             --shark-fin-grey: #8395A7;
             --section-bg-1: #03001C; 
             --section-bg-2: #10032B; 
             --header-hover-bg: rgba(255, 255, 255, 0.1);
-            --header-active-underline: #FFD700; /* Màu vàng cho gạch chân active */
+            --header-active-underline: #FFD700; 
         }
 
         body {
@@ -221,7 +221,7 @@
             padding: 0.5rem 0.25rem; 
             margin: 0 0.25rem; 
             color: white;
-            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Thêm background-color vào transition */
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; 
             text-decoration: none;
             border-radius: 6px; 
         }
@@ -244,7 +244,7 @@
         .header-nav-link:hover::after {
             width: 75%; 
         }
-        .header-nav-link.active-link { /* Class để đánh dấu link active */
+        .header-nav-link.active-link { 
             color: var(--header-active-underline);
             font-weight: 600; 
         }
@@ -252,9 +252,8 @@
              width: 75%;
         }
         
-        /* Testimonial Card Styling */
         .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.05); /* Nền mờ hơn */
+            background-color: rgba(255, 255, 255, 0.05); 
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--bakery-cream);
@@ -264,11 +263,44 @@
         }
         .testimonial-quote {
             font-style: italic;
-            color: #E0E0E0; /* Màu chữ sáng hơn cho quote */
+            color: #E0E0E0; 
         }
         .testimonial-author {
             color: var(--coral-pink);
             font-weight: 600;
+        }
+
+        /* Featured Cakes Section */
+        .featured-cakes-section {
+            background-color: var(--section-bg-1); /* Nền tối cho nổi bật bánh */
+            color: var(--bakery-cream);
+        }
+        .featured-cake-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+            will-change: transform, box-shadow;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .featured-cake-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0,0,0, 0.3), 0 0 30px var(--secondary-glow-color);
+        }
+        .featured-cake-card img {
+            aspect-ratio: 4/3; /* Giữ tỉ lệ ảnh */
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .featured-cake-card:hover img {
+            transform: scale(1.1);
+        }
+        .featured-cake-card h3 {
+            color: var(--coral-pink);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        .featured-cake-card p {
+            color: #D1D5DB; /* Màu xám nhạt hơn cho mô tả */
         }
 
     </style>
@@ -330,6 +362,44 @@
                         Chúng tôi tin rằng, một chiếc bánh ngon không chỉ để thưởng thức, mà còn để sẻ chia niềm vui và tạo nên những kỷ niệm khó phai. Hãy để "Cá Mập Con" đồng hành cùng bạn trong mọi khoảnh khắc đặc biệt nhé!
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-cakes" class="py-16 md:py-24 featured-cakes-section relative z-10">
+        <div class="section-container text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-16 font-pacifico reveal-on-scroll slide-in-up" style="text-shadow: 0 2px 5px rgba(0,0,0,0.4);">Mẫu Bánh Nổi Bật</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <div class="featured-cake-card reveal-on-scroll slide-in-left">
+                    <img src="asset/Image/banh-sinh-nhat-ca-map.jpg" alt="Bánh Sinh Nhật Cá Mập Đại Dương" class="w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 font-pacifico">Cá Mập Đại Dương</h3>
+                        <p class="text-sm mb-4">Chiếc bánh hoàn hảo cho các bé yêu thích biển cả và những chú cá mập dũng mãnh.</p>
+                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-300 font-semibold transition-colors">Xem thêm chi tiết &rarr;</a>
+                    </div>
+                </div>
+                <div class="featured-cake-card reveal-on-scroll slide-in-up" style="transition-delay: 0.2s;">
+                    <img src="asset/Image/banh-kem-dau-tay.jpg" alt="Bánh Kem Dâu Tây Tình Yêu" class="w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 font-pacifico">Dâu Tây Tình Yêu</h3>
+                        <p class="text-sm mb-4">Sự kết hợp ngọt ngào của dâu tây tươi và lớp kem mềm mịn, gửi gắm yêu thương.</p>
+                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-300 font-semibold transition-colors">Xem thêm chi tiết &rarr;</a>
+                    </div>
+                </div>
+                <div class="featured-cake-card reveal-on-scroll slide-in-right" style="transition-delay: 0.4s;">
+                    <img src="asset/Image/cupcake.jpg" alt="Bộ Sưu Tập Cupcake King Kong" class="w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 font-pacifico">Cupcake King Kong</h3>
+                        <p class="text-sm mb-4">Những chiếc cupcake nhỏ xinh với chủ đề King Kong độc đáo, vui nhộn cho mọi bữa tiệc.</p>
+                        <a href="maubanh.html#gallery" class="text-yellow-400 hover:text-yellow-300 font-semibold transition-colors">Xem thêm chi tiết &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 reveal-on-scroll slide-in-up">
+                <a href="maubanh.html" class="bg-coral-pink hover:bg-pink-700 text-white font-bold py-4 px-10 rounded-full text-xl transition duration-300 transform hover:scale-105 shadow-lg stylish-button-enhanced relative overflow-hidden">
+                    Xem Tất Cả Mẫu Bánh
+                    <span class="ripple-container"></span>
+                </a>
             </div>
         </div>
     </section>
@@ -481,7 +551,7 @@
             <div class="mb-8">
                 <h4 class="text-xl font-semibold mb-3">Giờ Mở Cửa:</h4>
                 <p>Thứ 2 - Thứ 7: 8:00 AM - 8:00 PM</p>
-                <p>Chủ Nhật: 9:00 AM - 6:00 PM</p>
+                <p>Chủ Nhật: 9:00 AM - 6:00 PM (Vui lòng đặt trước)</p>
             </div>
             <div class="flex justify-center space-x-6 mb-8">
                 <a href="#" aria-label="Facebook của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
@@ -496,8 +566,8 @@
             </div>
             <div class="mb-8 reveal-on-scroll slide-in-up">
                 <h4 class="text-xl font-semibold mb-3">Tìm Chúng Tôi Trên Bản Đồ:</h4>
-                <div class="w-full max-w-md h-64 bg-gray-700 rounded-lg mx-auto flex items-center justify-center text-gray-400">
-                    (Khu vực nhúng Google Maps)
+                <div class="w-full max-w-md h-64 bg-gray-700 rounded-lg mx-auto flex items-center justify-center text-gray-400 border-2 border-blue-400 shadow-lg">
+                    <p class="p-4">Đây là nơi bạn có thể nhúng Google Maps. <br> Ví dụ: tìm kiếm "Tiệm Bánh Cá Mập Con, 123 Đường Biển Xanh" trên Google Maps, sau đó chọn "Chia sẻ" > "Nhúng bản đồ" và sao chép mã HTML vào đây.</p>
                 </div>
             </div>
             <p class="text-md text-blue-200">&copy; <span id="currentYear"></span> Tiệm Bánh Cá Mập Con. All Rights Reserved.</p>
@@ -515,7 +585,7 @@
             const hero3DBackground = document.getElementById('hero-3d-background');
             if (hero3DBackground && typeof THREE !== 'undefined') {
                 let scene, camera, renderer, stars, nebulaParticles;
-                let animationFrameId_Hero3D; // Khai báo ở đây để có thể truy cập trong observer
+                let animationFrameId_Hero3D; 
 
                 function initHero3D() {
                     scene = new THREE.Scene();
@@ -570,7 +640,6 @@
                     scene.add(nebulaParticles);
 
                     window.addEventListener('resize', onHero3DResize, false);
-                    // Không gọi animateHero3D() ở đây, observer sẽ làm
                 }
 
                 function createOceanicNebulaTexture() {
@@ -625,7 +694,7 @@
                     renderer.render(scene, camera);
                 }
                 
-                const heroElement = document.getElementById('home'); // Quan sát section hero
+                const heroElement = document.getElementById('home'); 
                 if (heroElement) {
                     const heroObserver = new IntersectionObserver((entries) => {
                         if (entries[0].isIntersecting) {
@@ -755,32 +824,28 @@
                 });
             }
 
-            // Active link highlighting and smooth scroll
             const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
             const sections = document.querySelectorAll('section[id]');
 
             function changeNavActiveState() {
                 let index = sections.length;
-                while(--index && window.scrollY + 100 < sections[index].offsetTop) {} // 100 là offset
+                while(--index && window.scrollY + 100 < sections[index].offsetTop) {} 
                 
                 navLinks.forEach((link) => link.classList.remove('active-link'));
-                // Tìm link tương ứng với section hiện tại
                 const currentSectionId = sections[index] ? sections[index].id : null;
                 if (currentSectionId) {
                     const activeLink = document.querySelector(`header nav a[href="#${currentSectionId}"], #mobile-menu a[href="#${currentSectionId}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active-link');
                     } else if (window.location.pathname.includes('Index.html') && currentSectionId === 'home') {
-                        // Đặc biệt xử lý link "Trang Chủ" trên Index.html
                          const homeLink = document.querySelector('header nav a[href="#home"], #mobile-menu a[href="#home"]');
                          if(homeLink) homeLink.classList.add('active-link');
                     }
-                } else if (window.location.pathname.includes('Index.html')) { // Nếu không có section nào active, và đang ở trang chủ
+                } else if (window.location.pathname.includes('Index.html') || window.location.pathname === '/' || window.location.pathname === '') { 
                      const homeLink = document.querySelector('header nav a[href="#home"], #mobile-menu a[href="#home"]');
                      if(homeLink) homeLink.classList.add('active-link');
                 }
             }
-            // Gọi lần đầu và khi cuộn
             changeNavActiveState();
             window.addEventListener('scroll', changeNavActiveState);
 
@@ -800,9 +865,6 @@
                         if (targetElement) {
                             e.preventDefault();
                             targetElement.scrollIntoView({ behavior: 'smooth' });
-                            // Cập nhật active link ngay lập tức (tùy chọn, vì scroll event cũng sẽ làm)
-                            // navLinks.forEach(link => link.classList.remove('active-link'));
-                            // this.classList.add('active-link');
                         }
                     } else if (href.includes('#') && 
                                (href.split('#')[0] === window.location.pathname.split('/').pop() || href.split('#')[0] === 'Index.html' || href.split('#')[0] === '')
