@@ -13,23 +13,26 @@
 
     <style>
         :root {
-            --primary-glow-color: rgba(0, 200, 255, 0.7); /* Ocean Blue Glow */
-            --secondary-glow-color: rgba(255, 105, 180, 0.7); /* Coral Pink Glow */
+            --primary-glow-color: rgba(0, 200, 255, 0.7); 
+            --secondary-glow-color: rgba(255, 105, 180, 0.7); 
             --bakery-cream: #FFF5E1;
             --bakery-brown: #A0522D;
-            --ocean-blue-deep: #0A2463; /* Màu nền chính của body */
+            --ocean-blue-deep: #0A2463; 
             --ocean-blue-light: #3E92CC;
+            --hero-title-blue: #00A9FF; 
             --coral-pink: #FF69B4;
             --shark-fin-grey: #8395A7;
             --section-bg-1: #03001C; 
             --section-bg-2: #10032B; 
+            --header-hover-bg: rgba(255, 255, 255, 0.1);
+            --header-active-underline: #FFD700; 
         }
 
         body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden; 
             background-color: var(--ocean-blue-deep); 
-            color: var(--bakery-cream); /* Màu chữ mặc định cho các section có nền tối */
+            color: var(--bakery-cream); 
             scroll-behavior: smooth;
         }
 
@@ -37,13 +40,12 @@
             font-family: 'Pacifico', cursive;
         }
         
-        /* --- HERO STRIP 3D BACKGROUND ( subtle version for maubanh.html )--- */
         #hero-strip-3d-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%; /* Chiều cao của section chứa nó */
+            height: 100%; 
             z-index: 0; 
             overflow: hidden;
         }
@@ -52,8 +54,6 @@
             z-index: 10;
         }
 
-
-        /* --- ANIMATION CƠ BẢN (Đã có và tinh chỉnh) --- */
         @keyframes bounce-in { 
             0% { opacity: 0; transform: scale(0.3) translateY(-30px); }
             50% { opacity: 0.9; transform: scale(1.1); }
@@ -68,21 +68,18 @@
         }
         .animate-gentle-wave { animation: gentle-wave 2.2s ease-in-out infinite; }
 
-
-        /* --- ANIMATION NÂNG CAO TỪ "TUYỆT TÁC" (Áp dụng cho trang này) --- */
-        @keyframes gradientBackgroundPage { /* Gradient cho nền body hoặc các section lớn */
+        @keyframes gradientBackgroundPage { 
             0% { background-position: 0% 50%; filter: hue-rotate(0deg) saturate(1.1); } 
             25% { background-position: 100% 30%; filter: hue-rotate(10deg) saturate(1.3); }
             50% { background-position: 0% 70%; filter: hue-rotate(-5deg) saturate(1.1); }
             75% { background-position: 100% 100%; filter: hue-rotate(5deg) saturate(1.3); } 
             100% { background-position: 0% 50%; filter: hue-rotate(0deg) saturate(1.1); } 
         }
-        .page-animated-gradient-bg { /* Áp dụng cho body hoặc một wrapper lớn */
+        .page-animated-gradient-bg { 
             background: linear-gradient(-65deg, var(--ocean-blue-deep), var(--ocean-blue-light), #FFC0CB, var(--bakery-cream), var(--ocean-blue-deep));
             background-size: 800% 800%; 
             animation: gradientBackgroundPage 40s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite; 
         }
-
 
         .reveal-on-scroll { opacity: 0; transition: opacity 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.15), transform 1.6s cubic-bezier(0.215, 0.610, 0.355, 1.15); will-change: opacity, transform; }
         .reveal-on-scroll.slide-in-left { transform: translateX(-100px) rotateY(15deg) scale(0.92); }
@@ -104,35 +101,32 @@
             100% { opacity: 1; transform: translateY(0) rotateX(0deg) rotateY(0deg) scale(1); filter: blur(0px) brightness(1) contrast(1); }
         }
         
-        /* --- "KẸO ĐƯỜNG MA THUẬT" (Crystalline Growth) --- */
-        .sugar-crystal-section-maubanh { /* Đổi tên class để tránh xung đột nếu có */
-            min-height: 80vh; /* Giảm chiều cao một chút */
-            background: linear-gradient(180deg, #FFE4E1 0%, #FFF0F5 50%, #FFE4E1 100%); /* Misty Rose, Lavender Blush */
+        .sugar-crystal-section-maubanh { 
+            min-height: 80vh; 
+            background: linear-gradient(180deg, #FFE4E1 0%, #FFF0F5 50%, #FFE4E1 100%); 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             position: relative; overflow: hidden; padding: 2rem;
         }
         #sugar-crystal-canvas-maubanh {
             border-radius: 1rem;
-            box-shadow: 0 0 35px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 182, 193, 0.4); /* Light Pink glow */
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 182, 193, 0.4); 
         }
 
-
-        /* --- CSS CHO DẢI ẢNH TƯƠNG TÁC (Đã có và tinh chỉnh) --- */
         .interactive-image-strip-section {
              margin-bottom: 2.5rem; 
-             background-color: rgba(240, 249, 255, 0.8); /* Màu nền nhẹ nhàng hơn, hơi trong */
+             background-color: rgba(240, 249, 255, 0.8); 
              padding-top: 1.5rem; 
              padding-bottom: 1.5rem; 
-             border-radius: 1rem; /* Bo góc cho cả section */
+             border-radius: 1rem; 
              box-shadow: 0 10px 25px rgba(0,50,100,0.1);
         }
 
         .interactive-image-strip {
           display: flex;
           width: 100%; 
-          height: 380px; /* Giảm chiều cao một chút */
+          height: 380px; 
           overflow: hidden; 
-          gap: 8px; /* Tăng khoảng cách */
+          gap: 8px; 
         }
 
         .interactive-image-strip .strip-item {
@@ -140,7 +134,7 @@
           flex-grow: 1; 
           overflow: hidden; 
           position: relative;
-          transition: flex-basis 0.6s cubic-bezier(0.23, 1, 0.32, 1.2), transform 0.4s ease-out; /* Thêm transform vào transition */
+          transition: flex-basis 0.6s cubic-bezier(0.23, 1, 0.32, 1.2), transform 0.4s ease-out; 
           cursor: pointer;
           border-radius: 10px; 
           box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -152,33 +146,31 @@
           transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1.2); 
         }
         
-        .interactive-image-strip .strip-item:hover { /* Thêm hiệu ứng khi hover vào item */
-            transform: translateY(-5px) scale(1.01); /* Nhấc lên và phóng to nhẹ */
+        .interactive-image-strip .strip-item:hover { 
+            transform: translateY(-5px) scale(1.01); 
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         .interactive-image-strip .strip-item:hover img {
             transform: scale(1.05); 
         }
 
-        /* Trạng thái ban đầu: ảnh giữa 50%, hai ảnh còn lại 25% */
         .interactive-image-strip .strip-item:nth-child(1) { flex-basis: 25%; }
-        .interactive-image-strip .strip-item:nth-child(2) { flex-basis: 50%; } /* Ảnh giữa to hơn */
+        .interactive-image-strip .strip-item:nth-child(2) { flex-basis: 50%; } 
         .interactive-image-strip .strip-item:nth-child(3) { flex-basis: 25%; }
 
         .interactive-image-strip:hover .strip-item {
-          flex-basis: 20%; /* Co lại khi hover vào container */
+          flex-basis: 20%; 
         }
         .interactive-image-strip .strip-item:hover { 
-          flex-basis: 60% !important; /* Ưu tiên mở rộng item đang hover */
+          flex-basis: 60% !important; 
         }
         
-        /* --- GALLERY BÁNH KEM NÂNG CẤP --- */
         .cake-gallery-card {
-            background-color: rgba(255, 255, 255, 0.9); /* Nền trắng hơi trong */
-            border-radius: 1.5rem; /* Bo góc nhiều hơn */
+            background-color: rgba(255, 255, 255, 0.9); 
+            border-radius: 1.5rem; 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transform-style: preserve-3d; /* Cho hiệu ứng tilt */
+            transform-style: preserve-3d; 
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
             will-change: transform, box-shadow;
         }
@@ -194,7 +186,7 @@
         }
         .cake-gallery-card .card-content {
             padding: 1.5rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.05), transparent); /* Gradient nhẹ ở dưới */
+            background: linear-gradient(to top, rgba(0,0,0,0.05), transparent); 
         }
         .cake-gallery-card h3 {
             color: var(--ocean-blue-deep);
@@ -203,38 +195,90 @@
         .cake-gallery-card p {
             color: var(--shark-fin-grey);
         }
+        
+        .stylish-button-enhanced { 
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1.2); 
+            will-change: transform, box-shadow; 
+        }
+        .stylish-button-enhanced:hover { 
+            transform: translateY(-8px) scale(1.12) rotate(-1.5deg); 
+            box-shadow: 0 20px 35px rgba(0,0,0,0.3), 0 0 18px rgba(255,255,255,0.3), 0 0 25px var(--coral-pink); 
+        }
+        .ripple { position: absolute; border-radius: 50%; background-image: linear-gradient(45deg, rgba(255,222,173,0.5), rgba(255,182,193,0.3)); transform: scale(0); animation: ripple-effect-bakery 0.9s cubic-bezier(0.19, 1, 0.22, 1); will-change: transform, opacity; }
+        @keyframes ripple-effect-bakery { 
+            0% { transform: scale(0); opacity: 1; }
+            70% { transform: scale(5.5); opacity: 0.35; }
+            100% { transform: scale(6); opacity: 0; }
+        }
 
-
-        /* Đảm bảo các phần tử không tràn (đã có) */
         .section-container { width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
         .full-bleed-bg { width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+
+        .header-nav-link {
+            position: relative;
+            padding: 0.5rem 0.25rem; 
+            margin: 0 0.25rem; 
+            color: white;
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; 
+            text-decoration: none;
+            border-radius: 6px; 
+        }
+        .header-nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--header-active-underline);
+            transition: width 0.3s ease-in-out;
+        }
+        .header-nav-link:hover {
+            color: var(--header-active-underline);
+            transform: translateY(-2px);
+            background-color: var(--header-hover-bg); 
+        }
+        .header-nav-link:hover::after {
+            width: 75%; 
+        }
+        .header-nav-link.active-link { 
+            color: var(--header-active-underline);
+            font-weight: 600; 
+        }
+        .header-nav-link.active-link::after {
+             width: 75%;
+        }
+
     </style>
 </head>
-<body class="bg-sky-100 text-gray-800 page-animated-gradient-bg"> <header class="bg-blue-500 shadow-lg sticky top-0 z-50">
+<body class="bg-sky-100 text-gray-800 page-animated-gradient-bg"> 
+     <header class="bg-blue-500 shadow-lg sticky top-0 z-50">
         <div class="section-container py-3 px-4 md:px-6 flex justify-between items-center">
             <a href="Index.html" class="flex items-center space-x-2">
-                <img src="asset/Image/shark-logo.png" alt="Logo Tiệm Bánh Cá Mập Con" class="h-12 md:h-14 rounded-lg">
+                <img src="asset/Image/shark-logo.png" alt="Logo Tiệm Bánh Cá Mập Con" class="h-16 md:h-20 rounded-lg transform transition-transform duration-300 hover:scale-110">
             </a>
-            <nav class="hidden md:flex space-x-4">
-                <a href="Index.html" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Trang Chủ</a>
-                <a href="maubanh.html" class="text-white font-semibold border-b-2 border-yellow-300 px-3 py-2 rounded-md text-sm">Mẫu Bánh</a>
-                <a href="Index.html#order" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Đặt Bánh</a>
-                <a href="Index.html#contact" class="text-white hover:text-yellow-300 transition duration-300 px-3 py-2 rounded-md text-sm font-medium">Liên Hệ</a>
+            <nav class="hidden md:flex space-x-1">
+                <a href="Index.html" class="header-nav-link">Trang Chủ</a>
+                <a href="maubanh.html" class="header-nav-link active-link">Mẫu Bánh</a>
+                <a href="Index.html#order" class="header-nav-link">Đặt Bánh</a>
+                <a href="Index.html#contact" class="header-nav-link">Liên Hệ</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-blue-500">
-            <a href="Index.html" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Trang Chủ</a>
-            <a href="maubanh.html" class="block text-white bg-blue-600 px-4 py-2 text-sm font-semibold">Mẫu Bánh</a>
-            <a href="Index.html#order" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Đặt Bánh</a>
-            <a href="Index.html#contact" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-2 text-sm">Liên Hệ</a>
+            <a href="Index.html" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-3 text-sm">Trang Chủ</a>
+            <a href="maubanh.html" class="block text-white bg-blue-600 px-4 py-3 text-sm font-semibold">Mẫu Bánh</a>
+            <a href="Index.html#order" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-3 text-sm">Đặt Bánh</a>
+            <a href="Index.html#contact" class="block text-white hover:text-yellow-300 transition duration-300 px-4 py-3 text-sm">Liên Hệ</a>
         </div>
     </header>
 
     <section class="interactive-image-strip-section relative py-10 md:py-16">
-        <div id="hero-strip-3d-background" class="opacity-30"></div> <div class="hero-strip-content-container section-container">
+        <div id="hero-strip-3d-background" class="opacity-30"></div> 
+        <div class="hero-strip-content-container section-container">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-10 font-pacifico text-blue-700 letter-reveal-bakery-page" style="text-shadow: 1px 1px 3px rgba(255,255,255,0.5);">
                 Những Mẫu Bánh Nổi Bật
             </h2>
@@ -252,7 +296,8 @@
         </div>
     </section>
 
-    <div class="py-12 md:py-20 bg-sky-50 relative z-10"> <div class="section-container text-center">
+    <div class="py-12 md:py-20 bg-sky-50 relative z-10"> 
+        <div class="section-container text-center">
             <h1 class="text-4xl md:text-5xl font-bold text-blue-700 mb-4 font-pacifico animate-bounce-in">Thư Viện Bánh Xinh</h1>
             <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">Khám phá những mẫu bánh ngon và đẹp mắt nhất từ Tiệm Bánh Cá Mập Con! Mỗi chiếc bánh là một câu chuyện ngọt ngào.</p>
         </div>
@@ -275,50 +320,50 @@
         <div class="section-container">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                 <div class="cake-gallery-card reveal-on-scroll slide-in-left">
-                    <img src="https://placehold.co/600x400/81D4FA/0A2463?text=Bánh+Cá+Mập+Xanh+Biếc" alt="Bánh kem cá mập xanh biếc" class="w-full h-72 object-cover">
+                    <img src="asset/Image/banh-sinh-nhat-ca-map.jpg" alt="Bánh kem cá mập xanh biếc" class="w-full h-72 object-cover">
                     <div class="card-content">
-                        <h3 class="text-2xl font-semibold mb-1">Bánh Cá Mập Xanh Biếc</h3>
-                        <p class="text-sm text-gray-600 mt-1">Hoàn hảo cho bé trai yêu thích phiêu lưu dưới đáy biển.</p>
+                        <h3 class="text-2xl font-semibold mb-1">Bánh Cá Mập Đại Dương</h3>
+                        <p class="text-sm text-gray-600 mt-1">Một thế giới biển cả thu nhỏ, hoàn hảo cho các bé trai năng động.</p>
                         <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
                     </div>
                 </div>
                 <div class="cake-gallery-card reveal-on-scroll slide-in-up" style="transition-delay: 0.1s;">
-                    <img src="https://placehold.co/600x400/F48FB1/A0522D?text=Bánh+Công+Chúa+Cá+Mập" alt="Bánh kem công chúa cá mập hồng" class="w-full h-72 object-cover">
+                    <img src="asset/Image/banh-kem-dau-tay.jpg" alt="Bánh kem dâu tây tươi mát" class="w-full h-72 object-cover">
                     <div class="card-content">
-                        <h3 class="text-2xl font-semibold mb-1">Bánh Công Chúa Cá Mập</h3>
-                        <p class="text-sm text-gray-600 mt-1">Ngọt ngào và dễ thương cho các nàng công chúa nhỏ.</p>
+                        <h3 class="text-2xl font-semibold mb-1">Bánh Kem Dâu Tây Tươi</h3>
+                        <p class="text-sm text-gray-600 mt-1">Vị dâu tây ngọt ngào kết hợp kem tươi béo ngậy, tan chảy đầu lưỡi.</p>
                          <button class="mt-3 bg-pink-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-pink-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
                     </div>
                 </div>
                 <div class="cake-gallery-card reveal-on-scroll slide-in-right" style="transition-delay: 0.2s;">
-                    <img src="https://placehold.co/600x400/FFD54F/A0522D?text=Bánh+Cá+Mập+Vàng+Nắng" alt="Bánh kem cá mập vàng nắng" class="w-full h-72 object-cover">
+                    <img src="asset/Image/cupcake.jpg" alt="Bộ sưu tập cupcake King Kong" class="w-full h-72 object-cover">
                     <div class="card-content">
-                        <h3 class="text-2xl font-semibold mb-1">Bánh Cá Mập Vàng Nắng</h3>
-                        <p class="text-sm text-gray-600 mt-1">Rực rỡ và tràn đầy năng lượng cho ngày vui thêm trọn vẹn.</p>
+                        <h3 class="text-2xl font-semibold mb-1">Cupcake King Kong</h3>
+                        <p class="text-sm text-gray-600 mt-1">Những chiếc cupcake nhỏ xinh với chủ đề King Kong độc đáo cho fan hâm mộ.</p>
                          <button class="mt-3 bg-yellow-500 text-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-yellow-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
                     </div>
                 </div>
-                 <div class="cake-gallery-card reveal-on-scroll slide-in-left" style="transition-delay: 0.3s;">
-                    <img src="https://placehold.co/600x400/A5D6A7/0A2463?text=Bánh+Rừng+San+Hô" alt="Bánh kem chủ đề rừng san hô" class="w-full h-72 object-cover">
+                <div class="cake-gallery-card reveal-on-scroll slide-in-left" style="transition-delay: 0.3s;">
+                    <img src="https://placehold.co/600x400/A5D6A7/0A2463?text=Bánh+Rừng+San+Hô+Kỳ+Thú" alt="Bánh kem chủ đề rừng san hô kỳ thú" class="w-full h-72 object-cover">
                     <div class="card-content">
-                        <h3 class="text-2xl font-semibold mb-1">Bánh Rừng San Hô</h3>
-                        <p class="text-sm text-gray-600 mt-1">Khám phá thế giới dưới biển diệu kỳ với bánh kem đa sắc màu.</p>
+                        <h3 class="text-2xl font-semibold mb-1">Bánh Rừng San Hô Kỳ Thú</h3>
+                        <p class="text-sm text-gray-600 mt-1">Khám phá vẻ đẹp rực rỡ của đại dương với bánh kem trang trí san hô.</p>
                          <button class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
                     </div>
                 </div>
-                 <div class="cake-gallery-card reveal-on-scroll slide-in-up" style="transition-delay: 0.4s;">
-                    <img src="https://placehold.co/600x400/CE93D8/A0522D?text=Bánh+Ước+Mơ+Cá+Mập" alt="Bánh kem sinh nhật đặc biệt theo yêu cầu" class="w-full h-72 object-cover">
+                <div class="cake-gallery-card reveal-on-scroll slide-in-up" style="transition-delay: 0.4s;">
+                    <img src="https://placehold.co/600x400/CE93D8/A0522D?text=Bánh+Nàng+Tiên+Cá+Mơ+Mộng" alt="Bánh kem nàng tiên cá mơ mộng" class="w-full h-72 object-cover">
                     <div class="card-content">
-                        <h3 class="text-2xl font-semibold mb-1">Bánh Ước Mơ Cá Mập</h3>
-                        <p class="text-sm text-gray-600 mt-1">Thiết kế độc quyền theo mọi ý tưởng và yêu cầu của bạn.</p>
+                        <h3 class="text-2xl font-semibold mb-1">Bánh Nàng Tiên Cá Mơ Mộng</h3>
+                        <p class="text-sm text-gray-600 mt-1">Thiết kế lãng mạn, đưa bạn vào thế giới cổ tích dưới biển sâu.</p>
                          <button class="mt-3 bg-purple-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-purple-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
                     </div>
                 </div>
-                 <div class="cake-gallery-card reveal-on-scroll slide-in-right" style="transition-delay: 0.5s;">
-                    <img src="https://placehold.co/600x400/FFAB91/A0522D?text=Cupcake+Biệt+Đội+Cá+Mập" alt="Bánh cupcake biệt đội cá mập" class="w-full h-72 object-cover">
+                <div class="cake-gallery-card reveal-on-scroll slide-in-right" style="transition-delay: 0.5s;">
+                    <img src="https://placehold.co/600x400/FFAB91/A0522D?text=Cupcake+Biển+Xanh+Cát+Trắng" alt="Bánh cupcake biển xanh cát trắng" class="w-full h-72 object-cover">
                     <div class="card-content">
-                        <h3 class="text-2xl font-semibold mb-1">Cupcake Biệt Đội Cá Mập</h3>
-                        <p class="text-sm text-gray-600 mt-1">Những chiếc bánh nhỏ xinh, dễ thương cho mọi bữa tiệc.</p>
+                        <h3 class="text-2xl font-semibold mb-1">Cupcake Biển Xanh Cát Trắng</h3>
+                        <p class="text-sm text-gray-600 mt-1">Những chiếc bánh nhỏ xinh mang hương vị của biển cả và mùa hè.</p>
                          <button class="mt-3 bg-orange-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-orange-600 transition-colors stylish-button-enhanced relative overflow-hidden">Xem Chi Tiết <span class="ripple-container"></span></button>
                     </div>
                 </div>
@@ -335,18 +380,18 @@
      <footer id="contact" class="full-bleed-bg bg-blue-600 text-white py-12 md:py-20 relative z-10">
         <div class="section-container text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 font-pacifico">Liên Hệ Với Chúng Tôi</h2>
-            <img src="https://placehold.co/100x100/FFFFFF/3B82F6?text=Cute%20Shark&font=Pacifico" alt="Hình ảnh cá mập thân thiện" class="mx-auto mb-6 h-24 w-24 rounded-full shadow-lg">
-            <p class="mb-3 text-lg">Địa chỉ: 123 Đường Biển Xanh, Thành Phố Vui Vẻ</p>
+            <img src="asset/Image/shark-logo.png" alt="Logo Tiệm Bánh Cá Mập Con ở footer" class="mx-auto mb-6 h-20 w-20 md:h-24 md:w-24 rounded-full shadow-lg border-2 border-white">
+            <p class="mb-3 text-lg">Địa chỉ: 123 Đường Biển Xanh, Thành Phố Vui Vẻ, Việt Nam</p>
             <p class="mb-3 text-lg">Điện thoại: <a href="tel:0123456789" class="hover:text-yellow-300 transition-colors">0123-456-789</a></p>
             <p class="mb-8 text-lg">Email: <a href="mailto:hello@camapconbakery.com" class="hover:text-yellow-300 transition-colors">hello@camapconbakery.com</a></p>
             <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
+                <a href="#" aria-label="Facebook của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
                     <i class="fab fa-facebook fa-2x"></i>
                 </a>
-                <a href="#" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
+                <a href="#" aria-label="Instagram của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
                    <i class="fab fa-instagram fa-2x"></i>
                 </a>
-                <a href="#" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
+                <a href="#" aria-label="Tiktok của Tiệm Bánh Cá Mập Con" class="text-white hover:text-yellow-300 transition duration-300 transform hover:scale-110">
                      <i class="fab fa-tiktok fa-2x"></i>
                 </a>
             </div>
@@ -355,45 +400,47 @@
         </div>
     </footer>
     <script>
-        // Tone.js Polyfill (nếu cần)
+        // Tone.js Polyfill
         if (typeof globalThis.AudioWorkletGlobalScope === 'undefined') globalThis.AudioWorkletGlobalScope = {};
         if (typeof globalThis.AudioWorkletProcessor === 'undefined') globalThis.AudioWorkletProcessor = class AudioWorkletProcessor {};
 
         document.addEventListener('DOMContentLoaded', () => {
-            // --- HERO STRIP 3D BACKGROUND (Subtle version) ---
+            // --- HERO STRIP 3D BACKGROUND ---
             const heroStrip3DBackground = document.getElementById('hero-strip-3d-background');
             if (heroStrip3DBackground && typeof THREE !== 'undefined') {
                 let scene, camera, renderer, particles;
-                const parentSection = heroStrip3DBackground.parentElement; // Để lấy kích thước
+                const parentSection = heroStrip3DBackground.parentElement; 
+                let animationFrameId_HeroStrip3D;
 
                 function initHeroStrip3D() {
                     scene = new THREE.Scene();
+                    if (!parentSection) return;
                     const width = parentSection.offsetWidth;
                     const height = parentSection.offsetHeight;
-                    if (width === 0 || height === 0) return; // Tránh lỗi nếu section chưa có kích thước
+                    if (width === 0 || height === 0) {
+                        setTimeout(initHeroStrip3D, 100);
+                        return;
+                    }
 
                     camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-                    camera.position.z = 5; // Gần hơn cho hiệu ứng nhẹ
+                    camera.position.z = 5; 
 
                     renderer = new THREE.WebGLRenderer({ alpha: true });
                     renderer.setSize(width, height);
                     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-                    heroStrip3DBackground.innerHTML = ''; // Xóa nội dung cũ
+                    heroStrip3DBackground.innerHTML = ''; 
                     heroStrip3DBackground.appendChild(renderer.domElement);
 
-                    // Subtle particles (e.g., shimmering water or sugar dust)
                     const particleGeometry = new THREE.BufferGeometry();
                     const particleMaterial = new THREE.PointsMaterial({
-                        color: 0xFFDAB9, // Màu kem nhạt hoặc xanh dương nhạt
-                        size: 0.05,
-                        transparent: true,
-                        opacity: 0.6,
+                        color: 0xFFDAB9, 
+                        size: 0.05, transparent: true, opacity: 0.6,
                         blending: THREE.AdditiveBlending
                     });
                     const particleVertices = [];
                     for (let i = 0; i < 3000; i++) {
                         const x = (Math.random() - 0.5) * 30;
-                        const y = (Math.random() - 0.5) * 15; // Hẹp hơn theo chiều dọc
+                        const y = (Math.random() - 0.5) * 15; 
                         const z = (Math.random() - 0.5) * 10;
                         particleVertices.push(x, y, z);
                     }
@@ -402,7 +449,7 @@
                     scene.add(particles);
 
                     window.addEventListener('resize', onHeroStrip3DResize, false);
-                    animateHeroStrip3D();
+                    // Không gọi animate ở đây, observer sẽ làm
                 }
                 
                 function onHeroStrip3DResize() {
@@ -417,20 +464,36 @@
                 }
 
                 let mouseX_strip = 0;
-                parentSection.addEventListener('mousemove', (event) => { // Lắng nghe mousemove trên section cha
-                    const rect = parentSection.getBoundingClientRect();
-                    mouseX_strip = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-                });
+                if (parentSection) { // Kiểm tra parentSection tồn tại
+                    parentSection.addEventListener('mousemove', (event) => { 
+                        const rect = parentSection.getBoundingClientRect();
+                        mouseX_strip = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+                    });
+                }
+
 
                 function animateHeroStrip3D() {
-                    requestAnimationFrame(animateHeroStrip3D);
+                    animationFrameId_HeroStrip3D = requestAnimationFrame(animateHeroStrip3D);
                     if (!particles || !scene || !camera || !renderer) return;
-                    particles.rotation.y += 0.0005 + mouseX_strip * 0.001; // Xoay nhẹ và theo chuột
+                    particles.rotation.y += 0.0005 + mouseX_strip * 0.001; 
                     particles.rotation.x += 0.0002;
                     renderer.render(scene, camera);
                 }
-                // Khởi tạo sau khi DOM đã ổn định để lấy kích thước section chính xác
-                setTimeout(initHeroStrip3D, 100); 
+                
+                if (parentSection) {
+                    const heroStripObserver = new IntersectionObserver((entries) => {
+                        if (entries[0].isIntersecting) {
+                            if (!scene) initHeroStrip3D();
+                            if (animationFrameId_HeroStrip3D === undefined && scene) animateHeroStrip3D();
+                        } else {
+                            if (animationFrameId_HeroStrip3D) {
+                                cancelAnimationFrame(animationFrameId_HeroStrip3D);
+                                animationFrameId_HeroStrip3D = undefined;
+                            }
+                        }
+                    }, { threshold: 0.01 });
+                    heroStripObserver.observe(parentSection);
+                }
             }
 
 
@@ -459,7 +522,7 @@
                     }
                 }
 
-                class SugarBranchMaubanh { // Đổi tên class để tránh xung đột
+                class SugarBranchMaubanh { 
                     constructor(x, y, angle, length, depth = 0) {
                         this.x = x; this.y = y; this.angle = angle; this.length = length;
                         this.maxLength = Math.random() * 40 + 35 - depth * 5;
@@ -471,7 +534,7 @@
                     grow() {
                         if (this.currentLength < this.maxLength) {
                             this.currentLength += sugarGrowthSpeed;
-                        } else if (this.depth < 4 && this.children.length === 0 && sugarBranches.reduce((acc, b) => acc + b.countChildren(), 0) < 800) { // Giới hạn tổng số nhánh con
+                        } else if (this.depth < 4 && this.children.length === 0 && sugarBranches.reduce((acc, b) => acc + b.countChildren(), 0) < 800) { 
                             const numNewBranches = Math.floor(Math.random() * 2) + 1; 
                             for (let i = 0; i < numNewBranches; i++) {
                                 const newAngle = this.angle + (Math.random() - 0.5) * (Math.PI / 2.3);
@@ -484,8 +547,8 @@
                         }
                         this.children.forEach(child => child.grow());
                     }
-                    countChildren() { // Hàm đệ quy để đếm tổng số nhánh con
-                        let count = 1; // Count itself
+                    countChildren() { 
+                        let count = 1; 
                         this.children.forEach(child => { count += child.countChildren(); });
                         return count;
                     }
@@ -529,6 +592,8 @@
                              setupSugarCrystalCanvasMaubanh();
                              if(sugarAnimationIdMaubanh) cancelAnimationFrame(sugarAnimationIdMaubanh); 
                              animateSugarCrystallineMaubanh();
+                        } else if (!sugarAnimationIdMaubanh) { // If already setup but stopped
+                            animateSugarCrystallineMaubanh();
                         }
                     } else {
                         if(sugarAnimationIdMaubanh) cancelAnimationFrame(sugarAnimationIdMaubanh); 
@@ -548,7 +613,6 @@
             }
 
 
-            // --- ANIMATION CHỮ CÁI XUẤT HIỆN ---
             const letterRevealElements = document.querySelectorAll('.letter-reveal-bakery-page'); 
             letterRevealElements.forEach(el => {
                 const text = el.textContent; 
@@ -557,7 +621,6 @@
                 ).join('');
             });
 
-            // --- ANIMATION KHI CUỘN (SCROLL REVEAL) ---
             const scrollElements = document.querySelectorAll('.reveal-on-scroll');
             const elementInView = (el, percentageScroll = 100) => {
                 const elementTop = el.getBoundingClientRect().top;
@@ -569,10 +632,9 @@
                     if (elementInView(el, 78)) { displayScrollElement(el); } 
                 });
             };
-            handleScrollAnimation(); // Initial check
+            handleScrollAnimation(); 
             window.addEventListener('scroll', handleScrollAnimation);
 
-            // --- Mobile menu toggle (giữ nguyên từ code gốc) ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenuButton && mobileMenu) {
@@ -581,15 +643,57 @@
                 });
             }
 
-            // --- Smooth scroll (giữ nguyên từ code gốc) ---
-            document.querySelectorAll('header nav a').forEach(anchor => {
+            // Active link highlighting and smooth scroll
+            const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
+            const sections = Array.from(document.querySelectorAll('section[id]')); // Chuyển NodeList thành Array
+             // Thêm section hero của dải ảnh vào danh sách sections để active link
+            const heroStripSection = document.querySelector('.interactive-image-strip-section');
+            if (heroStripSection && !heroStripSection.id) heroStripSection.id = 'hero-strip-maubanh'; // Gán ID nếu chưa có
+            if (heroStripSection) sections.unshift(heroStripSection); // Thêm vào đầu mảng
+
+            function changeNavActiveStateMaubanh() {
+                let index = sections.length;
+                while(--index && window.scrollY + 100 < sections[index].offsetTop) {} 
+                
+                navLinks.forEach((link) => link.classList.remove('active-link'));
+                
+                const currentSectionId = sections[index] ? sections[index].id : null;
+
+                if (currentSectionId) {
+                     const activeLink = document.querySelector(`header nav a[href="maubanh.html#${currentSectionId}"], header nav a[href="#${currentSectionId}"], #mobile-menu a[href="maubanh.html#${currentSectionId}"], #mobile-menu a[href="#${currentSectionId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active-link');
+                    } else if (currentSectionId === 'hero-strip-maubanh' || sections[index] === heroStripSection) {
+                        // Đặc biệt xử lý link "Mẫu Bánh" khi ở đầu trang maubanh.html
+                         const mauBanhLink = document.querySelector('header nav a[href="maubanh.html"], #mobile-menu a[href="maubanh.html"]');
+                         if(mauBanhLink) mauBanhLink.classList.add('active-link');
+                    }
+                } else if (window.location.pathname.includes('maubanh.html')) { // Nếu không có section nào active, và đang ở trang mẫu bánh
+                     const mauBanhLink = document.querySelector('header nav a[href="maubanh.html"], #mobile-menu a[href="maubanh.html"]');
+                     if(mauBanhLink) mauBanhLink.classList.add('active-link');
+                }
+            }
+            changeNavActiveStateMaubanh();
+            window.addEventListener('scroll', changeNavActiveStateMaubanh);
+
+
+            navLinks.forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
-                    if (mobileMenu && !this.closest('#mobile-menu a')) {
+                    if (mobileMenu && this.closest('#mobile-menu a')) { 
+                         setTimeout(() => mobileMenu.classList.add('hidden'), 150); 
+                    } else if (mobileMenu && !this.closest('#mobile-menu a') && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
-                    if (href.startsWith('#')) { 
-                        const targetElement = document.querySelector(href);
+
+                    if (href.startsWith('#') || (href.startsWith('Index.html#') && window.location.pathname.includes('Index.html')) ) { 
+                        let targetHash = href;
+                        if(href.startsWith('Index.html#')) { // Nếu là link từ trang khác về Index.html và có hash
+                            // Không làm gì ở đây, để trình duyệt tự chuyển trang và cuộn
+                            return;
+                        }
+                        
+                        const targetElement = document.querySelector(targetHash);
                         if (targetElement) {
                             e.preventDefault();
                             targetElement.scrollIntoView({ behavior: 'smooth' });
@@ -605,30 +709,29 @@
                 });
             });
 
-            // --- Set current year in footer (giữ nguyên từ code gốc) ---
             const currentYearElement = document.getElementById('currentYear');
             if (currentYearElement) {
                 currentYearElement.textContent = new Date().getFullYear();
             }
             
-            // --- Ripple effect for buttons ---
-            const stylishButtons = document.querySelectorAll('.stylish-button-enhanced'); // Sử dụng class mới nếu cần
+            const stylishButtons = document.querySelectorAll('.stylish-button-enhanced'); 
             stylishButtons.forEach(button => {
                 button.addEventListener('click', function (e) {
+                    if (e.target.closest('i')) return;
                     const rect = button.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
+                    const rippleContainer = button.querySelector('.ripple-container') || button; 
                     const ripple = document.createElement('span');
-                    ripple.classList.add('ripple'); // Đảm bảo class 'ripple' được định nghĩa trong CSS
+                    ripple.classList.add('ripple'); 
                     ripple.style.left = x + 'px';
                     ripple.style.top = y + 'px';
-                    const existingRipple = button.querySelector('.ripple');
+                    const existingRipple = rippleContainer.querySelector('.ripple');
                     if(existingRipple) existingRipple.remove();
-                    button.appendChild(ripple);
+                    rippleContainer.appendChild(ripple);
                     ripple.addEventListener('animationend', () => ripple.remove());
                 });
             });
-
 
         });
     </script>
