@@ -1,103 +1,68 @@
 /* css/style.css */
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #FFFFFF; /* Màu nền trắng chủ đạo */
-    color: #111827; /* Màu chữ đen cơ bản */
-    scroll-behavior: smooth; /* Optional: for smoother anchor scrolling */
+
+/* ... (các style hiện có của bạn) ... */
+
+/* 1. Header Adjustments */
+/* Logo "Deus" */
+.logo-text-deus { /* Thêm class này cho span chứa chữ "Deus" trong logo ở header.html */
+    letter-spacing: 0.05em; /* Tăng khoảng cách chữ cho "Deus" */
 }
 
-.text-brick-red {
-    color: #A52A2A; /* Màu đỏ gạch đậm */
+/* Menu Items in Header */
+header nav a.nav-link-item {
+    @apply text-gray-800 hover:text-brick-red transition-all duration-300 ease-in-out px-4 py-2 rounded-md text-sm font-medium relative; /* Tăng padding ngang (px-4) */
+    letter-spacing: 0.04em; /* Tăng khoảng cách chữ cho các mục menu */
+    /* For hover effect with underline slide */
+    overflow: hidden; /* Optional, for certain underline effects */
 }
 
-.bg-brick-red {
-    background-color: #A52A2A;
+/* Animation for underline on hover/active for menu items */
+header nav a.nav-link-item::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px; /* Độ dày gạch chân */
+    bottom: 0px; /* Vị trí gạch chân (sát dưới chữ) */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #A52A2A; /* Màu đỏ gạch */
+    transition: width 0.3s ease-in-out;
 }
 
-.border-brick-red {
-    border-color: #A52A2A;
+header nav a.nav-link-item:hover::after,
+header nav a.nav-link-item.nav-link-active::after {
+    width: 70%; /* Độ rộng gạch chân khi hover/active */
 }
 
-.logo-underline {
-    border-bottom: 4px solid #A52A2A;
-    padding-bottom: 2px;
-    display: inline-block;
-}
-
-/* Styles for header navigation links */
-header nav a.nav-link-item { /* Add class .nav-link-item to actual <a> tags in header.html */
-    @apply text-gray-800 hover:text-brick-red transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium;
-}
-
-header nav a.nav-link-item.nav-link-active { /* Active link style */
-    @apply text-brick-red font-semibold;
-}
-
-/* Style for the contact button in nav if it's different */
-header nav a.nav-contact-btn {
-     @apply bg-brick-red text-white hover:bg-opacity-90 transform hover:scale-105 px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300 ease-in-out;
-}
-
-
-.hero-section-bg { /* Apply this class to hero sections if using CSS background */
-    background-image: url('../assets/images/hero-bg.jpg'); /* Update path if needed */
-    background-size: cover;
-    background-position: center;
-}
-
-.card {
-    @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
-}
-
-.btn {
-    @apply px-6 py-3 rounded-md font-semibold transition-all duration-300 ease-in-out;
-}
-
-.btn-primary {
-    @apply bg-brick-red text-white hover:bg-opacity-90 transform hover:scale-105;
-}
-
-.btn-secondary {
-    @apply border-2 border-brick-red text-brick-red hover:bg-brick-red hover:text-white;
-}
-
-.section-title {
-    @apply text-3xl sm:text-4xl font-bold mb-4 text-center;
-}
-.page-title { /* For main titles on individual pages */
-     @apply text-4xl sm:text-5xl font-extrabold mb-8 text-gray-900;
+/* Subtle scale effect on hover for menu items */
+header nav a.nav-link-item:hover {
+    transform: scale(1.03); /* Phóng to nhẹ khi hover */
 }
 
 
-.section-subtitle {
-    @apply text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto;
+/* 2. Animation - Page Load & Scroll */
+
+/* Initial state for elements to be faded in on load or scroll */
+.fade-in-on-load,
+.fade-in-up-on-scroll {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Header scroll effect */
-#mainHeader.header-scrolled { /* ID must be on <header> tag in header.html */
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Header fade-in specific (nếu muốn có hiệu ứng trượt nhẹ từ trên xuống) */
+#mainHeader.fade-in-on-load {
+    transform: translateY(-20px);
 }
 
-/* Modal styles (reused from previous version) */
-.modal {
-    @apply fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center hidden z-[100];
-}
-.modal-content {
-    @apply relative mx-auto p-5 border w-full max-w-md shadow-lg rounded-md bg-white;
-}
-.modal-input {
-     @apply w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-brick-red;
-}
-.modal-result-display {
-    @apply mt-3 text-left text-sm text-gray-700 max-h-60 overflow-y-auto p-3 bg-gray-50 rounded-md whitespace-pre-wrap;
+/* Content sections fade-in and slide up slightly */
+.fade-in-up-on-scroll {
+    transform: translateY(30px); /* Trượt nhẹ từ dưới lên */
 }
 
-/* Tailwind CSS directives (usually at the top) */
-/* If you have a separate Tailwind config and build process, these might be handled there. */
-/* For CDN use, these are not strictly needed in this file if classes are applied directly. */
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+/* Class to trigger the animation */
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-/* Add any other global custom styles here */
+/* ... (các style hiện có khác của bạn) ... */
