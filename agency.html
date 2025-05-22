@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeusAgency - Dự Án Thực Chiến Cho SME</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased">
 
+    <div id="header-placeholder"></div>
+
+    <main class="pt-20">
+        <section class="py-12 sm:py-16 bg-gray-100 text-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <img src="assets/images/icon-agency-large.svg" alt="DeusAgency Icon" class="h-24 w-24 mx-auto mb-4 text-brick-red"> <h1 class="page-title"><span class="text-brick-red">Deus</span>Agency</h1>
+                <p class="section-subtitle">
+                    Nơi cung cấp các giải pháp marketing và quản trị toàn diện, từ chiến lược đến thực thi, giúp doanh nghiệp SME tối ưu hiệu quả hoạt động và bứt phá tăng trưởng mạnh mẽ.
+                </p>
+                 <button id="openStrategyModalBtn" class="btn btn-primary text-lg">✨ Thử Nghiệm Ý Tưởng Chiến Lược Tức Thì</button>
+            </div>
+        </section>
+
+        <section class="py-12 sm:py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-gray-900 mb-10">Dự Án Nổi Bật</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                    <div class="card overflow-hidden group">
+                        <img src="assets/images/project-placeholder.jpg" alt="Dự án Alpha" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-gray-900">Dự án Alpha - Tái Định Vị Thương Hiệu</h3>
+                            <p class="text-sm text-gray-500 mb-3">Khách hàng: Công ty ABC (Lĩnh vực Công nghệ)</p>
+                            <p class="text-gray-700 mb-4 text-sm leading-relaxed">Thách thức: Thương hiệu mờ nhạt, khó cạnh tranh. Giải pháp: Xây dựng lại toàn bộ nhận diện, chiến lược nội dung mới. Kết quả: Tăng 300% tương tác, 150% khách hàng tiềm năng.</p>
+                            <a href="#case-study-alpha" class="text-brick-red font-semibold hover:underline text-sm">Xem Case Study Chi Tiết &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card overflow-hidden group">
+                        <img src="assets/images/project-placeholder.jpg" alt="Dự án Beta" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-gray-900">Dự án Beta - Chiến Dịch Digital Marketing</h3>
+                            <p class="text-sm text-gray-500 mb-3">Khách hàng: Thương hiệu XYZ (Lĩnh vực Bán lẻ Thời trang)</p>
+                            <p class="text-gray-700 mb-4 text-sm leading-relaxed">Thách thức: Doanh số online trì trệ. Giải pháp: Phân tích insight, triển khai quảng cáo đa kênh (FB, GG, Tiktok), tối ưu SEO. Kết quả: Tăng 200% doanh số online, ROI 500%.</p>
+                            <a href="#case-study-beta" class="text-brick-red font-semibold hover:underline text-sm">Xem Case Study Chi Tiết &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="card overflow-hidden group">
+                        <img src="assets/images/project-placeholder.jpg" alt="Dự án Gamma" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-gray-900">Dự án Gamma - Tối Ưu Tỷ Lệ Chuyển Đổi</h3>
+                            <p class="text-sm text-gray-500 mb-3">Khách hàng: Startup EduTech (Lĩnh vực Giáo dục)</p>
+                            <p class="text-gray-700 mb-4 text-sm leading-relaxed">Thách thức: Traffic cao nhưng tỷ lệ đăng ký khóa học thấp. Giải pháp: A/B testing landing page, cải thiện UX/UI, tối ưu phễu bán hàng. Kết quả: Tăng tỷ lệ chuyển đổi 70%.</p>
+                            <a href="#case-study-gamma" class="text-brick-red font-semibold hover:underline text-sm">Xem Case Study Chi Tiết &rarr;</a>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section class="py-12 sm:py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-gray-900">Khách Hàng Nói Về Chúng Tôi</h2>
+                <div class="grid md:grid-cols-2 gap-8 mt-10">
+                    <div class="card">
+                        <p class="text-gray-700 italic leading-relaxed mb-4">"DeusCore không chỉ mang đến những ý tưởng sáng tạo mà còn thực thi rất chuyên nghiệp. Đội ngũ trẻ, năng động và luôn lắng nghe. Chúng tôi hoàn toàn hài lòng với kết quả dự án!"</p>
+                        <p class="font-semibold text-gray-900">Ông Nguyễn Văn An</p>
+                        <p class="text-sm text-gray-600">CEO, Công ty ABC</p>
+                    </div>
+                    <div class="card">
+                        <p class="text-gray-700 italic leading-relaxed mb-4">"Sự nhiệt huyết và tư duy chiến lược của các bạn trẻ DeusCore thật đáng kinh ngạc. Họ đã giúp chúng tôi nhìn ra những cơ hội mới và đạt được mục tiêu nhanh hơn dự kiến."</p>
+                        <p class="font-semibold text-gray-900">Bà Trần Thị Mai</p>
+                        <p class="text-sm text-gray-600">Marketing Manager, Thương hiệu XYZ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+    <div id="strategyModal" class="modal">
+        <div class="modal-content">
+            <div class="text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">✨ Nhận Ý Tưởng Chiến Lược Tức Thì</h3>
+                <div class="mt-2 px-7 py-3">
+                    <label for="businessChallenge" class="block text-sm font-medium text-gray-700 text-left mb-1">Lĩnh vực kinh doanh hoặc thách thức của bạn:</label>
+                    <input type="text" name="businessChallenge" id="businessChallenge" class="modal-input" placeholder="Ví dụ: Cửa hàng thời trang nữ, thu hút khách hàng mới...">
+                    <div id="strategyError" class="text-red-500 text-sm mt-1 text-left"></div>
+                </div>
+                <div id="strategyLoading" class="my-3 hidden">
+                    <svg class="animate-spin h-5 w-5 text-brick-red mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <p class="text-sm text-gray-600">Đang tạo ý tưởng...</p>
+                </div>
+                <div id="strategyResult" class="modal-result-display"></div>
+                <div class="items-center px-4 py-3">
+                    <button id="generateStrategyBtn" class="btn btn-primary w-full mb-2">Tạo Ý Tưởng!</button>
+                    <button id="closeStrategyModalBtn" class="btn btn-secondary w-full bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-800 hover:border-gray-400">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
