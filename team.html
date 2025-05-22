@@ -12,7 +12,7 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="pt-20 lg:pt-24"> {/* Thêm padding top cho header cao hơn */}
+    <main class="pt-20 lg:pt-24">
         <section class="py-12 sm:py-16 bg-gray-100">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="page-title">Đội Ngũ <span class="text-brick-red">DeusCore</span></h1>
@@ -25,7 +25,17 @@
         <section class="py-12 sm:py-16 fade-in-up-on-scroll">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center md:text-left">Nhóm Chiến Lược (Strategy Team)</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"> {/* Có thể tăng lên 4 cột nếu muốn */}
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <!-- 
+  Đây là 1 lưới (grid) chia thành nhiều cột, hiển thị linh hoạt theo kích thước màn hình:
+
+  - sm:grid-cols-2 → Màn hình nhỏ (sm) trở lên: chia 2 cột
+  - lg:grid-cols-3 → Màn hình lớn (lg) trở lên: chia 3 cột
+  - xl:grid-cols-4 → Màn hình rất lớn (xl): chia 4 cột
+  - gap-8 → Khoảng cách giữa các cột/hàng là 8 đơn vị
+
+  👉 Nếu muốn hiện nhiều hơn hoặc ít hơn số cột theo từng kích thước, chỉnh các giá trị grid-cols tương ứng.
+-->
                     <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Nguyễn Văn A</h3>
@@ -44,7 +54,15 @@
                         <p class="text-brick-red font-medium mb-1">Business Analyst</p>
                         <p class="text-sm text-gray-600 leading-relaxed">"Bậc thầy" của những con số và dữ liệu, cung cấp insight đắt giá cho các quyết định chiến lược.</p>
                     </div>
-                    {/* Thêm 1 thành viên nữa cho đủ 12 / 4 nhóm = 3 người/nhóm, hoặc 4 người/nhóm nếu team lớn hơn */}
+                   <!-- 
+  Gợi ý: Nên thêm ít nhất 1 thành viên nữa để chia đều team:
+
+  - Tổng team hiện tại: 12 người
+  - Nếu chia 4 nhóm (Sản xuất, Chiến lược, Điều phối, Kỹ thuật) → mỗi nhóm 3 người
+  - Nếu team mở rộng → nâng lên 4 người/nhóm cũng hợp lý
+
+  Việc hiển thị số thành viên đều giúp layout đẹp hơn, tạo cảm giác tổ chức bài bản và đầy đủ.
+-->
                      <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Phan Thị M</h3>
