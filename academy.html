@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeusAcademy - Tri Thức Thực Chiến & Phát Triển</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="antialiased">
 
+    <div id="header-placeholder"></div>
+
+    <main class="pt-20">
+        <section class="py-12 sm:py-16 bg-gray-100 text-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <img src="assets/images/icon-academy-large.svg" alt="DeusAcademy Icon" class="h-24 w-24 mx-auto mb-4 text-brick-red"> <h1 class="page-title"><span class="text-brick-red">Deus</span>Academy</h1>
+                <p class="section-subtitle">
+                    Nơi ươm mầm tài năng, chia sẻ kiến thức thực chiến và hệ thống hóa những bài học kinh nghiệm quý báu từ đội ngũ DeusCore. Chúng tôi tin rằng tri thức là sức mạnh, và việc chia sẻ sẽ nhân bội sức mạnh đó.
+                </p>
+                 <button id="openBlogOutlineModalBtn" class="btn btn-primary text-lg">✨ Gợi Ý Chủ Đề & Dàn Bài Blog</button>
+            </div>
+        </section>
+
+        <section class="py-12 sm:py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-gray-900">Đào Tạo & Phát Triển Nội Bộ</h2>
+                <p class="section-subtitle max-w-3xl">
+                    DeusCore chú trọng đầu tư vào con người. Các buổi training nội bộ, workshop chuyên đề được tổ chức thường xuyên, giúp mỗi thành viên không ngừng nâng cao kỹ năng, cập nhật xu hướng và phát triển bản thân.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card">
+                        <img src="assets/images/training-placeholder-1.jpg" alt="Workshop Kỹ Năng Mềm" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Workshop Kỹ Năng Thuyết Trình</h3>
+                        <p class="text-gray-700 text-sm">Nâng cao khả năng trình bày ý tưởng một cách thuyết phục và chuyên nghiệp.</p>
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/training-placeholder-2.jpg" alt="Training Digital Marketing" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Training Chuyên Sâu Digital Marketing</h3>
+                        <p class="text-gray-700 text-sm">Cập nhật các công cụ, thuật toán và chiến thuật mới nhất trong ngành.</p>
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/training-placeholder-3.jpg" alt="Seminar Tư Duy Chiến Lược" class="rounded-md mb-4 w-full h-48 object-cover">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Seminar Tư Duy Chiến Lược & Giải Quyết Vấn Đề</h3>
+                        <p class="text-gray-700 text-sm">Rèn luyện khả năng phân tích, đánh giá và đưa ra giải pháp tối ưu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 sm:py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title text-gray-900">Góc Nhìn DeusCore - Insights & Kiến Thức</h2>
+                <p class="section-subtitle max-w-3xl">
+                    Những bài viết phân tích chuyên sâu, chia sẻ kinh nghiệm thực tế và các case study điển hình từ đội ngũ DeusCore, giúp bạn cập nhật kiến thức và có thêm góc nhìn mới mẻ về marketing, quản trị và khởi nghiệp SME.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <article class="card overflow-hidden">
+                        <img src="assets/images/blog-placeholder.jpg" alt="Bài viết về SEO" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-1">SEO | 20 Tháng 5, 2025</p>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900">Bí Mật SEO On-Page Giúp Website Lên Top Bền Vững</h3>
+                            <p class="text-gray-700 mb-4 text-sm">Tổng hợp các kỹ thuật tối ưu on-page hiệu quả, dễ áp dụng cho cả người mới bắt đầu.</p>
+                            <a href="#blog-post-1" class="text-brick-red font-semibold hover:underline text-sm">Đọc Thêm &rarr;</a>
+                        </div>
+                    </article>
+                     <article class="card overflow-hidden">
+                        <img src="assets/images/blog-placeholder.jpg" alt="Bài viết về Content Marketing" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-1">Content Marketing | 15 Tháng 5, 2025</p>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900">Xây Dựng Chiến Lược Content Thu Hút Cho Gen Z</h3>
+                            <p class="text-gray-700 mb-4 text-sm">Phân tích insight thế hệ Z và cách tạo nội dung "chạm" đến đối tượng này.</p>
+                            <a href="#blog-post-2" class="text-brick-red font-semibold hover:underline text-sm">Đọc Thêm &rarr;</a>
+                        </div>
+                    </article>
+                     <article class="card overflow-hidden">
+                        <img src="assets/images/blog-placeholder.jpg" alt="Bài viết về Quản trị SME" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-1">Quản Trị SME | 10 Tháng 5, 2025</p>
+                            <h3 class="text-xl font-semibold mb-2 text-gray-900">5 Sai Lầm Phổ Biến Khi Quản Lý Tài Chính SME</h3>
+                            <p class="text-gray-700 mb-4 text-sm">Nhận diện và giải pháp khắc phục các vấn đề tài chính thường gặp ở doanh nghiệp nhỏ.</p>
+                            <a href="#blog-post-3" class="text-brick-red font-semibold hover:underline text-sm">Đọc Thêm &rarr;</a>
+                        </div>
+                    </article>
+                    </div>
+                <div class="text-center mt-12">
+                    <a href="#all-blog-posts" class="btn btn-secondary text-lg">Xem Tất Cả Bài Viết</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 sm:py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title text-gray-900">Kho Tài Liệu & Templates</h2>
+                <p class="section-subtitle max-w-3xl">
+                    DeusAcademy tổng hợp và chia sẻ các tài liệu hữu ích, templates, checklist... giúp cộng đồng SME và các bạn sinh viên dễ dàng áp dụng kiến thức vào thực tế.
+                </p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="#" class="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow border border-gray-200">
+                        <div class="text-3xl text-brick-red mb-2">📊</div>
+                        <h4 class="font-semibold text-gray-800">Marketing Plan Template</h4>
+                    </a>
+                    <a href="#" class="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow border border-gray-200">
+                        <div class="text-3xl text-brick-red mb-2">📝</div>
+                        <h4 class="font-semibold text-gray-800">Content Calendar Template</h4>
+                    </a>
+                    <a href="#" class="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow border border-gray-200">
+                        <div class="text-3xl text-brick-red mb-2">📈</div>
+                        <h4 class="font-semibold text-gray-800">SEO Checklist</h4>
+                    </a>
+                     <a href="#" class="block p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow border border-gray-200">
+                        <div class="text-3xl text-brick-red mb-2">🎯</div>
+                        <h4 class="font-semibold text-gray-800">Customer Persona Guide</h4>
+                    </a>
+                </div>
+                 <p class="mt-8 text-gray-600">Và nhiều tài liệu khác đang được cập nhật...</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="blogOutlineModal" class="modal">
+        <div class="modal-content">
+            <div class="text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">✨ Gợi Ý Chủ Đề & Dàn Bài Blog</h3>
+                <div class="mt-2 px-7 py-3">
+                    <label for="blogTopic" class="block text-sm font-medium text-gray-700 text-left mb-1">Nhập chủ đề hoặc lĩnh vực bạn quan tâm:</label>
+                    <input type="text" name="blogTopic" id="blogTopic" class="modal-input" placeholder="Ví dụ: Marketing cho Gen Z, Tối ưu SEO 2025...">
+                    <div id="blogOutlineError" class="text-red-500 text-sm mt-1 text-left"></div>
+                </div>
+                <div id="blogOutlineLoading" class="my-3 hidden">
+                    <svg class="animate-spin h-5 w-5 text-brick-red mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    <p class="text-sm text-gray-600">Đang tìm ý tưởng...</p>
+                </div>
+                <div id="blogOutlineResult" class="modal-result-display"></div>
+                <div class="items-center px-4 py-3">
+                    <button id="generateBlogOutlineBtn" class="btn btn-primary w-full mb-2">Tạo Dàn Bài!</button>
+                    <button id="closeBlogOutlineModalBtn" class="btn btn-secondary w-full bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-800 hover:border-gray-400">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
