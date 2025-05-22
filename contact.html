@@ -12,7 +12,7 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="pt-20 lg:pt-24"> {/* Thêm padding top cho header cao hơn */}
+    <main class="pt-20 lg:pt-24">
         <section class="py-12 sm:py-16 bg-gray-100">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="page-title">Kết Nối Với <span class="text-brick-red">DeusCore</span></h1>
@@ -24,11 +24,24 @@
 
         <section class="py-12 sm:py-16 fade-in-up-on-scroll">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-12 items-start"> {/* Thêm items-start */}
+                <div class="grid md:grid-cols-2 gap-12 items-start"> 
                     <div class="bg-white p-8 rounded-lg shadow-xl">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Gửi Lời Nhắn Cho Chúng Tôi</h2>
-                        <form action="#" method="POST" id="contactForm"> {/* Cần endpoint xử lý form */}
+                        <form action="#" method="POST" id="contactForm">  
+ <!-- 
+    Form liên hệ:
+    - action="#" nghĩa là chưa có đường dẫn xử lý form => CẦN thay bằng endpoint thật (ví dụ: /send-contact hoặc API nào đó)
+    - method="POST": gửi dữ liệu đi (dùng cho form nhập thông tin)
+    - id="contactForm": đặt tên để dễ dùng với JavaScript nếu cần xử lý form sau này
+  -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                                 <!-- 
+      Grid chia layout cho các ô nhập:
+      - 1 cột trên màn hình nhỏ
+      - 2 cột trên màn hình trung bình trở lên (sm)
+      - gap-6: khoảng cách giữa các ô là 6 đơn vị
+      - mb-6: tạo khoảng cách dưới 6 đơn vị cho toàn cụm
+    -->
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Họ và Tên <span class="text-brick-red">*</span></label>
                                     <input type="text" name="name" id="name" required class="modal-input" placeholder="Nguyễn Văn A">
@@ -53,14 +66,32 @@
                             <div>
                                 <button type="submit" class="btn btn-primary w-full text-lg">Gửi Lời Nhắn</button>
                             </div>
-                             <p id="formStatus" class="mt-4 text-sm text-center"></p> {/* Cho thông báo gửi form */}
+                             <p id="formStatus" class="mt-4 text-sm text-center"></p> 
+                            <!-- 
+  Thẻ <p> này dùng để hiển thị thông báo sau khi người dùng gửi form:
+  - Có thể là "Gửi thành công", "Lỗi khi gửi", v.v.
+  - id="formStatus": để JavaScript dễ chèn nội dung vào đây
+  - mt-4: tạo khoảng cách phía trên cho thẻ này
+  - text-sm: cỡ chữ nhỏ
+  - text-center: căn giữa nội dung
+-->
                         </form>
                     </div>
 
                     <div class="space-y-8">
                         <div>
                              <h2 class="text-2xl font-bold text-gray-900 mb-4">Thông Tin Liên Hệ Trực Tiếp</h2>
-                             <div class="card !shadow-none !p-0 border border-gray-200"> {/* Thêm border nhẹ */}
+                             <div class="card !shadow-none !p-0 border border-gray-200"> 
+                                 <!-- 
+  Thẻ div này là 1 "thẻ card" (khối nội dung riêng biệt):
+
+  - !shadow-none: tắt đổ bóng mặc định của card (ép không có bóng luôn)
+  - !p-0: xoá hết padding mặc định của card (ép không có khoảng trắng bên trong)
+  - border: thêm viền mỏng
+  - border-gray-200: màu viền xám nhạt cho nhẹ nhàng, tinh tế, không quá gắt
+
+  Mục tiêu: làm card nhìn sạch sẽ, phẳng, đơn giản, có viền nhẹ để phân biệt.
+-->
                                 <div class="p-6 border-b border-gray-200">
                                     <h3 class="text-lg font-semibold text-gray-800 mb-1">Địa chỉ Email</h3>
                                     <a href="mailto:connect@deuscore.agency" class="text-brick-red hover:underline break-all">connect@deuscore.agency</a>
