@@ -1,7 +1,7 @@
 /* css/style.css */
 body {
     font-family: 'Inter', sans-serif;  /* Chọn font chữ Inter, nếu không có thì dùng font không chân mặc định */
-    background-color: #FFFFFF;   /* Màu nền trắng tinh sạch */
+    background-color: #3B3B3B;   /* Màu nền Xám lạnh */
     color: #111827;  /* Màu chữ chính là xám đậm gần như đen */
     scroll-behavior: smooth;  /* Cuộn trang mượt, không giật cục */
     -webkit-font-smoothing: antialiased; /* Cải thiện hiển thị font trên Webkit */
