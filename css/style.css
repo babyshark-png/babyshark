@@ -192,11 +192,12 @@ header nav a.nav-contact-btn:hover {
 }
 
 .hero-section-bg {
-    background-image: url('../assets/images/hero-bg.jpg');
+    background-color: #9e1f1f; /* Hoặc bất kỳ mã màu nào mày thích */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Hiệu ứng parallax nhẹ */
+    background-attachment: fixed;
 }
+
 /* --- END GENERAL COMPONENT STYLES --- */
 
 
