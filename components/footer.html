@@ -1,10 +1,48 @@
 <footer class="bg-gray-900 text-gray-400 py-12">
+    <!-- Phần chân trang (footer) có nền màu xám đen đậm (xám 900),
+     chữ màu xám nhạt (xám 400),
+     và padding trên dưới (padding-y) rộng 12 đơn vị để tạo khoảng cách thoáng (Padding = khoảng đệm bên trong hộp, giữa nội dung và mép hộp.) -->
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+         <!-- 
+    Vùng chứa nội dung chính:
+    - 'container': giới hạn chiều rộng để không bị kéo dài quá rộng trên màn hình lớn
+    - 'mx-auto': căn giữa ngang trên màn hình
+    - 'px-4': thêm khoảng đệm trái/phải 4 đơn vị cho dễ nhìn
+    - 'sm:px-6': tăng đệm lên 6 đơn vị khi màn hình ≥ small
+    - 'lg:px-8': tăng tiếp lên 8 đơn vị khi màn hình ≥ large
+    => Giúp nội dung luôn gọn, đẹp, không dính mép màn hình
+  -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+             <!-- 
+    Hiển thị dạng lưới (grid):
+    - Mặc định là 1 cột (vì chưa khai báo gì thêm)
+    - Khi màn hình ≥ medium (md): chia làm 2 cột
+    - Khi màn hình ≥ large (lg): chia làm 4 cột
+    - 'gap-8': tạo khoảng cách giữa các ô là 8 đơn vị
+    - 'mb-8': tạo khoảng cách dưới (margin-bottom) 8 đơn vị
+    => Giúp nội dung chia cột linh hoạt theo kích thước màn hình, nhìn gọn và đều
+  -->
             <div>
                 <h4 class="text-xl font-semibold text-white mb-3">
+                     <!-- 
+    Tiêu đề cỡ lớn cấp 4 (h4):
+    - 'text-xl': cỡ chữ lớn
+    - 'font-semibold': độ đậm trung bình
+    - 'text-white': màu chữ trắng
+    - 'mb-3': tạo khoảng cách dưới 3 đơn vị 
+  -->
                      <a href="index.html" class="text-xl font-extrabold">
+                         <!-- 
+      Link trở về trang chủ:
+      - 'text-xl': cỡ chữ lớn (lặp lại, có thể bỏ nếu đã có ở thẻ cha)
+      - 'font-extrabold': chữ đậm nhất để tạo điểm nhấn thương hiệu
+    -->
                         <span class="logo-underline !border-white">Deus</span><span class="text-white">Core</span>
+                           <!-- 
+      - 'logo-underline': có thể là class tùy chỉnh tạo hiệu ứng gạch dưới logo
+      - '!border-white': ép màu viền thành trắng bất chấp ưu tiên CSS khác
+      - 'text-white': đảm bảo chữ 'Core' màu trắng
+    -->
                     </a>
                 </h4>
                 <p class="text-sm">Chiến Lược Đỉnh Cao. Thực Thi Vượt Trội.</p>
