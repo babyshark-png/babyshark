@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeusAcademy - Tri Thức Thực Chiến & Phát Triển</title>
+    <meta charset="UTF-8"> <!-- charset="UTF-8": Định dạng mã hóa ký tự, đảm bảo hiển thị tiếng Việt không bị lỗi. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- viewport: Cho phép trang web hiển thị tốt trên các thiết bị khác nhau (điện thoại, máy tính bảng, máy tính). --!>
+    <title>DeusAcademy - Tri Thức Thực Chiến & Phát Triển</title> <!-- title: Tiêu đề trang web, hiện trên tab trình duyệt. -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- link và script: Gọi font chữ Inter, thư viện TailwindCSS để thiết kế giao diện, và file CSS riêng của bạn. -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="antialiased">
 
-    <div id="header-placeholder"></div>
-
-    <main class="pt-20 lg:pt-24"> 
-        <section class="py-12 sm:py-16 bg-gray-100 text-center">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="header-placeholder"></div> <!-- Đây là chỗ để load header (menu, logo) động vào, tiện để tái sử dụng -->
+    <main class="pt-20 lg:pt-24"> <!-- Padding top đẩy main xuống tránh bị header đè lên -->
+        <section class="py-12 sm:py-16 bg-gray-100 text-center"> <!-- Section nền xám nhạt, canh giữa text -->
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8"> <!-- Giới hạn độ rộng nội dung, responsive -->
                  <img src="assets/images/icon-academy-large.svg" alt="DeusAcademy Icon" class="h-24 w-24 mx-auto mb-4">
-                <h1 class="page-title"><span class="text-brick-red">Deus</span>Academy</h1>
+                  <!-- Logo lớn ở giữa, margin-bottom để cách ra -->
+                <h1 class="page-title"><span class="text-brick-red">Deus</span>Academy</h1>       <!-- Tiêu đề chính, chữ "Deus" màu đỏ gạch -->
                 <p class="section-subtitle">
                     Nơi ươm mầm tài năng, chia sẻ kiến thức thực chiến và hệ thống hóa những bài học kinh nghiệm quý báu từ đội ngũ DeusCore. Chúng tôi tin rằng tri thức là sức mạnh, và việc chia sẻ sẽ nhân bội sức mạnh đó.
-                </p>
+                </p>  <!-- Mô tả ý nghĩa, sứ mệnh -->
+                
                  <button id="openBlogOutlineModalBtn" class="btn btn-primary text-lg">✨ Gợi Ý Chủ Đề & Dàn Bài Blog</button>
+                <!-- Nút bấm chính, có icon để thu hút -->
             </div>
         </section>
 
