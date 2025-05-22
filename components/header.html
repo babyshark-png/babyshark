@@ -1,38 +1,60 @@
 <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-20 lg:h-24">
             <div class="flex-shrink-0">
-               <a href="index.html" class="text-3xl font-extrabold">
-    <span class="logo-underline text-brick-red logo-text-deus">Deus</span>
-              </a>
+                <a href="index.html" class="logo-container group">
+                    <span class="logo-text-deus text-4xl font-bold">Deus</span>
+                </a>
             </div>
 
-            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+            <nav class="hidden md:flex items-center lg:space-x-6"> {/* Tăng khoảng cách tổng thể giữa các mục menu lớn hơn */}
                 <a href="index.html" class="nav-link-item">Trang Chủ</a>
                 <a href="about.html" class="nav-link-item">Về DeusCore</a>
                 <a href="team.html" class="nav-link-item">Đội Ngũ</a>
-                <a href="agency.html" class="nav-link-item">DeusAgency</a>
-                <a href="academy.html" class="nav-link-item">DeusAcademy</a>
-                <a href="lab.html" class="nav-link-item">DeusLab</a>
-                <a href="contact.html" class="nav-contact-btn ml-2">Liên Hệ</a>
+                <div class="relative group">
+                    <button type="button" class="nav-link-item flex items-center focus:outline-none" id="deusBranchesDropdownToggle">
+                        Deus Branches
+                        <svg class="ml-1 h-4 w-4 text-gray-600 group-hover:text-brick-red transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="deusBranchesDropdown" class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out z-20 transform scale-95 group-hover:scale-100">
+                        <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="deusBranchesDropdownToggle">
+                            <a href="agency.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brick-red" role="menuitem">DeusAgency</a>
+                            <a href="academy.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brick-red" role="menuitem">DeusAcademy</a>
+                            <a href="lab.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brick-red" role="menuitem">DeusLab</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-contact-btn ml-4 lg:ml-6">Liên Hệ</a> {/* Tăng margin trái cho nút Liên hệ */}
             </nav>
 
             <div class="md:hidden">
-                <button id="mobileMenuButton" class="text-gray-800 hover:text-brick-red focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button id="mobileMenuButton" aria-label="Mở menu" class="text-gray-900 hover:text-brick-red focus:outline-none">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
             </div>
         </div>
     </div>
-    <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg">
-        <a href="index.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-brick-red">Trang Chủ</a>
-        <a href="about.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-brick-red">Về DeusCore</a>
-        <a href="team.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-brick-red">Đội Ngũ</a>
-        <a href="agency.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-brick-red">DeusAgency</a>
-        <a href="academy.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-brick-red">DeusAcademy</a>
-        <a href="lab.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-brick-red">DeusLab</a>
-        <a href="contact.html" class="block px-4 py-3 text-brick-red font-semibold hover:bg-gray-100">Liên Hệ</a>
+    <div id="mobileMenu" class="md:hidden bg-white shadow-lg"> {/* max-height và overflow sẽ được xử lý bởi CSS/JS */}
+        <a href="index.html" class="mobile-nav-link">Trang Chủ</a>
+        <a href="about.html" class="mobile-nav-link">Về DeusCore</a>
+        <a href="team.html" class="mobile-nav-link">Đội Ngũ</a>
+        <div>
+            <button id="mobileBranchesToggle" class="mobile-nav-link w-full text-left flex justify-between items-center">
+                Deus Branches
+                <svg class="h-5 w-5 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            <div id="mobileBranchesDropdown" class="pl-4 hidden">
+                 <a href="agency.html" class="mobile-nav-link !py-2 !text-sm">DeusAgency</a>
+                 <a href="academy.html" class="mobile-nav-link !py-2 !text-sm">DeusAcademy</a>
+                 <a href="lab.html" class="mobile-nav-link !py-2 !text-sm">DeusLab</a>
+            </div>
+        </div>
+        <a href="contact.html" class="block px-5 py-3 text-brick-red font-semibold hover:bg-gray-100">Liên Hệ</a>
     </div>
 </header>
