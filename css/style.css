@@ -1,34 +1,34 @@
 /* css/style.css */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #FFFFFF;
-    color: #111827;
-    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;  /* Chọn font chữ Inter, nếu không có thì dùng font không chân mặc định */
+    background-color: #FFFFFF;   /* Màu nền trắng tinh sạch */
+    color: #111827;  /* Màu chữ chính là xám đậm gần như đen */
+    scroll-behavior: smooth;  /* Cuộn trang mượt, không giật cục */
     -webkit-font-smoothing: antialiased; /* Cải thiện hiển thị font trên Webkit */
     -moz-osx-font-smoothing: grayscale; /* Cải thiện hiển thị font trên Firefox */
 }
 
-/* --- BEGIN UTILITY & COLOR CLASSES --- */
+/* --- BẮT ĐẦU: Các class tiện ích & màu sắc --- */
 .text-brick-red {
-    color: #B22222; /* Đỏ gạch mới */
+    color: #B22222; /* Class đặt màu chữ đỏ gạch */
 }
 .bg-brick-red {
-    background-color: #B22222;
+    background-color: #B22222; /* Nền đỏ gạch */
 }
 .border-brick-red {
-    border-color: #B22222;
+    border-color: #B22222; /* Class đặt màu viền đỏ gạch */
 }
-/* --- END UTILITY & COLOR CLASSES --- */
+/* --- KẾT THÚC: Các class tiện ích & màu sắc --- */
 
 
-/* --- BEGIN HEADER STYLES --- */
-#mainHeader { /* For sticky and general header styling */
-    /* Fixed positioning is handled by Tailwind class 'fixed' in header.html */
+/* --- BẮT ĐẦU PHẦN STYLE CHO HEADER --- */
+/* #mainHeader: phần header chính của trang, dùng để làm header “dính” (sticky) và style chung */
+/* Chú ý: vị trí cố định (fixed) đã được gán bằng Tailwind trong file header.html rồi, không cần ở đây */
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
-.logo-container { /* Thẻ <a> chứa logo */
-    display: inline-block; /* Để hover effect hoạt động trên toàn bộ khu vực logo */
+    /* Hiệu ứng chuyển màu nền và bóng đổ khi thay đổi trạng thái header */
+  /* Hiệu ứng chuyển màu nền và bóng đổ khi thay đổi trạng thái header */
+    display: inline-block; /* Đặt display inline-block để toàn bộ khu vực logo có thể nhận hover (chuột vào) */
 }
 .logo-text-deus {
     /* text-4xl font-bold đã được áp dụng bằng Tailwind class trong header.html */
@@ -38,6 +38,15 @@ body {
     padding-bottom: 5px; /* Không gian cho underline */
     display: inline-block; /* Cho ::after hoạt động đúng */
 }
+/* .logo-text-deus: phần chữ “Deus” trong logo */
+/* 
+   - Đã có class Tailwind text-4xl font-bold gán trong html nên không viết lại ở đây
+   - Tăng khoảng cách chữ (letter-spacing) cho đẹp
+   - Màu chữ dùng đỏ gạch #B22222
+   - position relative để dùng pseudo-element ::after hiệu quả
+   - padding-bottom tạo khoảng trống bên dưới cho gạch chân (underline)
+   - display inline-block để ::after chạy đúng 
+*/
 .logo-text-deus::after {
     content: '';
     position: absolute;
@@ -51,8 +60,6 @@ body {
 .logo-container:hover .logo-text-deus::after {
     width: 100%;
 }
-
-/* Menu Items Desktop (links và button dropdown) */
 header nav a.nav-link-item,
 header nav button.nav-link-item {
     /* text-black, text-base, font-medium, px-3 lg:px-5 py-2, relative đã được áp dụng bằng Tailwind */
