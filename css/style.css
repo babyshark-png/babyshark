@@ -1,9 +1,14 @@
 /* css/style.css */
-/* ... (Font import và body styles giữ nguyên) ... */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFFF;
+    color: #111827;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased; /* Cải thiện hiển thị font trên Webkit */
+    -moz-osx-font-smoothing: grayscale; /* Cải thiện hiển thị font trên Firefox */
+}
 
-/* --- BEGIN HEADER REFINEMENTS --- */
-
-/* Cập nhật màu sắc chính (nếu bạn muốn đổi `#A52A2A` thành `#B22222` ở mọi nơi) */
+/* --- BEGIN UTILITY & COLOR CLASSES --- */
 .text-brick-red {
     color: #B22222; /* Đỏ gạch mới */
 }
@@ -13,36 +18,53 @@
 .border-brick-red {
     border-color: #B22222;
 }
+/* --- END UTILITY & COLOR CLASSES --- */
 
-/* Logo "Deus" */
+
+/* --- BEGIN HEADER STYLES --- */
+#mainHeader { /* For sticky and general header styling */
+    /* Fixed positioning is handled by Tailwind class 'fixed' in header.html */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.logo-container { /* Thẻ <a> chứa logo */
+    display: inline-block; /* Để hover effect hoạt động trên toàn bộ khu vực logo */
+}
 .logo-text-deus {
-    /* font-size và font-weight được đặt bằng Tailwind class trong HTML (text-4xl font-bold) */
-    letter-spacing: 0.03em; /* Khoảng cách chữ cho "Deus" */
+    /* text-4xl font-bold đã được áp dụng bằng Tailwind class trong header.html */
+    letter-spacing: 0.03em;
     color: #B22222; /* Màu đỏ gạch cho chữ Deus */
-    position: relative; /* Cho pseudo-element ::after */
-    padding-bottom: 5px; /* Tạo không gian cho underline */
-    display: inline-block; /* Để ::after hoạt động đúng */
+    position: relative;
+    padding-bottom: 5px; /* Không gian cho underline */
+    display: inline-block; /* Cho ::after hoạt động đúng */
 }
 .logo-text-deus::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 3px; /* Độ dày underline cho logo */
+    height: 3px;
     bottom: 0;
-    left: 0; /* Underline từ trái sang phải */
+    left: 0;
     background-color: #B22222;
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
 }
-.logo-container:hover .logo-text-deus::after { /* Hiệu ứng khi hover vào thẻ a chứa logo */
+.logo-container:hover .logo-text-deus::after {
     width: 100%;
 }
 
-/* Menu Items Desktop (và Dropdown Toggle "Deus Branches") */
+/* Menu Items Desktop (links và button dropdown) */
 header nav a.nav-link-item,
 header nav button.nav-link-item {
-    @apply text-black hover:text-brick-red transition-all duration-300 ease-in-out px-3 lg:px-5 py-2 rounded-md text-base font-medium relative; /* text-black, text-base, px-3 lg:px-5 */
-    letter-spacing: 0.05em; /* Tăng khoảng cách chữ */
+    /* text-black, text-base, font-medium, px-3 lg:px-5 py-2, relative đã được áp dụng bằng Tailwind */
+    letter-spacing: 0.05em;
+    color: #000000; /* Màu đen tuyền cho chữ menu */
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none; /* Cho button */
+}
+header nav a.nav-link-item:hover,
+header nav button.nav-link-item:hover {
+    color: #B22222; /* Đổi màu chữ sang đỏ gạch khi hover */
+    transform: translateY(-1px) scale(1.03); /* Hiệu ứng nhấc nhẹ và phóng to */
 }
 
 /* Underline effect cho menu items desktop */
@@ -51,36 +73,38 @@ header nav button.nav-link-item::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px; /* Độ dày underline */
-    bottom: -2px; /* Vị trí underline, có thể chỉnh cho sát hơn */
-    left: 0; /* Underline từ trái sang phải */
-    background-color: #B22222; /* Màu đỏ gạch */
+    height: 2px;
+    bottom: -2px; /* Điều chỉnh vị trí underline nếu cần */
+    left: 0;
+    background-color: #B22222;
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 header nav a.nav-link-item:hover::after,
 header nav button.nav-link-item:hover::after,
 header nav a.nav-link-item.nav-link-active::after,
-header nav button.nav-link-item.nav-link-active::after { /* Áp dụng cho cả button active nếu cần */
+header nav button.nav-link-item.nav-link-active::after {
     width: 100%;
 }
 
+/* Desktop Dropdown "Deus Branches" */
+/* Styling cho dropdown container đã được xử lý bởi Tailwind classes trong header.html */
+/* (group-hover:opacity-100, group-hover:visible, transform scale-95 group-hover:scale-100) */
+
 /* Nút Liên hệ trong Nav Desktop */
 header nav a.nav-contact-btn {
-     @apply bg-brick-red text-white hover:bg-opacity-80 px-5 py-2.5 rounded-md text-base font-medium transition-all duration-300 ease-in-out; /* text-base, px-5 py-2.5 */
-     letter-spacing: 0.05em;
+    /* bg-brick-red, text-white, px-5 py-2.5, rounded-md, text-base, font-medium, letter-spacing, transition đã được áp dụng bằng Tailwind */
+    transition-property: background-color, transform, box-shadow; /* Đảm bảo tất cả transition */
 }
 header nav a.nav-contact-btn:hover {
-    transform: translateY(-1px); /* Hiệu ứng nhấc nhẹ */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #9e1f1f; /* Màu đỏ gạch đậm hơn khi hover */
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 8px rgba(178, 34, 34, 0.3); /* Shadow màu đỏ nhẹ */
 }
-
 
 /* Header scroll effect (shadow) */
 #mainHeader.header-scrolled {
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Shadow mềm mại hơn, opacity 0.08 */
-    /* height: auto; /* Allow height to adjust if content wraps on scroll, but usually fixed height is better */
+    background-color: rgba(255, 255, 255, 0.98); /* Nền trắng hơi trong suốt */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Shadow mềm mại hơn */
 }
 
 /* Mobile Menu Styling */
@@ -88,44 +112,102 @@ header nav a.nav-contact-btn:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth slide down */
-    border-top: 1px solid #e5e7eb; /* Light border */
+    border-top: 1px solid #e5e7eb; /* Tailwind gray-200 */
 }
 #mobileMenu.menu-open {
-    max-height: 70vh; /* Đủ lớn để chứa các mục, có thể điều chỉnh */
-    overflow-y: auto; /* Scroll nếu nội dung quá dài */
+    max-height: 80vh; /* Đủ lớn để chứa các mục, có thể điều chỉnh */
+    overflow-y: auto;
 }
 .mobile-nav-link {
-    @apply block px-5 py-3 text-gray-800 hover:bg-gray-100 hover:text-brick-red transition-colors duration-200 text-base;
-    letter-spacing: 0.04em;
+    /* block px-5 py-3 text-gray-800 hover:bg-gray-100 hover:text-brick-red transition-colors duration-200 text-base letter-spacing đã áp dụng bằng Tailwind */
+    transition-property: background-color, color;
 }
-/* Style cho icon dropdown trên mobile */
+/* Icon dropdown trên mobile */
 #mobileBranchesToggle svg.rotate-180 {
     transform: rotate(180deg);
 }
+/* --- END HEADER STYLES --- */
 
 
-/* --- END HEADER REFINEMENTS --- */
-
-
-/* Page Load & Scroll Animations (Giữ nguyên từ trước) */
+/* --- BEGIN PAGE ANIMATION STYLES --- */
 .fade-in-on-load,
 .fade-in-up-on-scroll {
     opacity: 0;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
-#mainHeader.fade-in-on-load { /* Class này được JS thêm vào */
+#mainHeader.fade-in-on-load { /* Class này được JS thêm vào cho header */
     transform: translateY(-20px);
 }
-.fade-in-up-on-scroll {
+.fade-in-up-on-scroll { /* Class cho các section nội dung */
     transform: translateY(30px);
 }
-.is-visible {
+.is-visible { /* Class được JS thêm vào khi element vào viewport */
     opacity: 1;
     transform: translateY(0);
 }
+/* --- END PAGE ANIMATION STYLES --- */
 
-/* ... (các style khác: .card, .btn, .section-title, etc. giữ nguyên hoặc tùy chỉnh nếu cần) ... */
-/* Ví dụ, đảm bảo .page-title và .section-title dùng font Inter nếu chưa rõ ràng */
-.page-title, .section-title {
+
+/* --- BEGIN GENERAL COMPONENT STYLES --- */
+.card {
+    @apply bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out;
+}
+.btn {
+    @apply px-6 py-3 rounded-md font-semibold transition-all duration-300 ease-in-out;
+}
+.btn-primary {
+    @apply bg-brick-red text-white hover:bg-opacity-90;
+}
+.btn-primary:hover { /* Thêm hiệu ứng nhấc nhẹ cho btn-primary */
+    transform: translateY(-2px) scale(1.02);
+    background-color: #9e1f1f; /* Đỏ đậm hơn */
+    box-shadow: 0 2px 6px rgba(178, 34, 34, 0.25);
+}
+.btn-secondary {
+    @apply border-2 border-brick-red text-brick-red hover:bg-brick-red hover:text-white;
+}
+.btn-secondary:hover { /* Thêm hiệu ứng nhấc nhẹ cho btn-secondary */
+     transform: translateY(-2px) scale(1.02);
+     box-shadow: 0 2px 6px rgba(178, 34, 34, 0.15);
+}
+
+.section-title {
+    @apply text-3xl sm:text-4xl font-bold mb-4 text-center text-gray-900;
     font-family: 'Inter', sans-serif;
 }
+.page-title {
+     @apply text-4xl sm:text-5xl font-extrabold mb-8 text-gray-900;
+     font-family: 'Inter', sans-serif;
+}
+.section-subtitle {
+    @apply text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto leading-relaxed;
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-section-bg {
+    background-image: url('../assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Hiệu ứng parallax nhẹ */
+}
+/* --- END GENERAL COMPONENT STYLES --- */
+
+
+/* --- BEGIN MODAL STYLES (For Gemini Features) --- */
+.modal {
+    @apply fixed inset-0 bg-gray-900 bg-opacity-75 overflow-y-auto h-full w-full flex items-center justify-center p-4 hidden z-[100]; /* Nền tối hơn, padding */
+}
+.modal-content {
+    @apply relative mx-auto p-6 border-none w-full max-w-lg shadow-2xl rounded-lg bg-white; /* Max-width lớn hơn, padding nhiều hơn, shadow mạnh hơn */
+}
+.modal-content h3 { /* Style cho tiêu đề modal */
+    @apply text-xl font-semibold text-gray-800;
+}
+.modal-input {
+     @apply w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brick-red focus:border-transparent transition-colors; /* Thêm focus styles */
+}
+.modal-result-display {
+    @apply mt-4 text-left text-sm text-gray-700 max-h-64 overflow-y-auto p-4 bg-gray-50 rounded-md border border-gray-200; /* Thêm border, padding */
+    line-height: 1.6; /* Dễ đọc hơn */
+}
+/* --- END MODAL STYLES --- */
