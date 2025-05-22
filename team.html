@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đội Ngũ DeusCore - 12 Chiến Binh</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,7 +12,7 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="pt-20">
+    <main class="pt-20 lg:pt-24"> {/* Thêm padding top cho header cao hơn */}
         <section class="py-12 sm:py-16 bg-gray-100">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="page-title">Đội Ngũ <span class="text-brick-red">DeusCore</span></h1>
@@ -26,24 +25,31 @@
         <section class="py-12 sm:py-16 fade-in-up-on-scroll">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center md:text-left">Nhóm Chiến Lược (Strategy Team)</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"> {/* Có thể tăng lên 4 cột nếu muốn */}
                     <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Nguyễn Văn A</h3>
                         <p class="text-brick-red font-medium mb-1">Strategic Lead</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Với tầm nhìn bao quát và khả năng phân tích sắc bén, Văn A dẫn dắt đội ngũ định hình những chiến lược đột phá, mang lại lợi thế cạnh tranh cho khách hàng.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Với tầm nhìn bao quát và khả năng phân tích sắc bén, Văn A dẫn dắt đội ngũ định hình những chiến lược đột phá.</p>
                     </div>
                     <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Trần Thị B</h3>
                         <p class="text-brick-red font-medium mb-1">Marketing Strategist</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Chuyên gia hoạch định các chiến dịch marketing tổng thể, tối ưu hóa thông điệp và kênh truyền thông để đạt mục tiêu hiệu quả nhất.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Chuyên gia hoạch định các chiến dịch marketing tổng thể, tối ưu hóa thông điệp và kênh truyền thông.</p>
                     </div>
                      <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Lê Văn C</h3>
                         <p class="text-brick-red font-medium mb-1">Business Analyst</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">"Bậc thầy" của những con số và dữ liệu, Văn C cung cấp những insight đắt giá giúp team đưa ra quyết định chiến lược dựa trên bằng chứng.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">"Bậc thầy" của những con số và dữ liệu, cung cấp insight đắt giá cho các quyết định chiến lược.</p>
+                    </div>
+                    {/* Thêm 1 thành viên nữa cho đủ 12 / 4 nhóm = 3 người/nhóm, hoặc 4 người/nhóm nếu team lớn hơn */}
+                     <div class="card text-center">
+                        <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
+                        <h3 class="text-xl font-semibold text-gray-900">Phan Thị M</h3>
+                        <p class="text-brick-red font-medium mb-1">Research Specialist</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Chuyên sâu nghiên cứu thị trường, đối thủ và hành vi người dùng để làm nền tảng cho chiến lược.</p>
                     </div>
                 </div>
             </div>
@@ -52,24 +58,24 @@
         <section class="py-12 sm:py-16 bg-gray-50 fade-in-up-on-scroll">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center md:text-left">Nhóm Kỹ Thuật (Technical Team)</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                      <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Phạm Thị D</h3>
                         <p class="text-brick-red font-medium mb-1">Tech Lead / Web Developer</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Kiến trúc sư trưởng của các giải pháp công nghệ, đảm bảo website và ứng dụng hoạt động mượt mà, hiệu quả và bảo mật.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Kiến trúc sư trưởng của các giải pháp công nghệ, đảm bảo website và ứng dụng hoạt động mượt mà.</p>
                     </div>
                     <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Vũ Văn E</h3>
                         <p class="text-brick-red font-medium mb-1">Data Scientist</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Khai phá sức mạnh từ dữ liệu lớn, Văn E giúp tối ưu hóa chiến dịch và cá nhân hóa trải nghiệm người dùng.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Khai phá sức mạnh từ dữ liệu lớn, giúp tối ưu hóa chiến dịch và cá nhân hóa trải nghiệm người dùng.</p>
                     </div>
-                    <div class="card text-center">
+                     <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Đặng Thị X</h3>
                         <p class="text-brick-red font-medium mb-1">Mobile App Developer</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">Chuyên phát triển ứng dụng di động đa nền tảng, mang trải nghiệm người dùng tốt nhất lên thiết bị cầm tay.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Chuyên phát triển ứng dụng di động đa nền tảng, mang trải nghiệm người dùng tốt nhất.</p>
                     </div>
                 </div>
             </div>
@@ -78,7 +84,7 @@
         <section class="py-12 sm:py-16 fade-in-up-on-scroll">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center md:text-left">Nhóm Sản Xuất (Production Team)</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Hoàng Văn F</h3>
@@ -104,7 +110,7 @@
         <section class="py-12 sm:py-16 bg-gray-50 fade-in-up-on-scroll">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center md:text-left">Nhóm Điều Phối (Operations Team)</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div class="card text-center">
                         <img src="assets/images/team-placeholder.png" alt="Tên Thành Viên" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-md object-cover">
                         <h3 class="text-xl font-semibold text-gray-900">Bùi Thị I</h3>
