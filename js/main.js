@@ -1,7 +1,14 @@
 // js/main.js
+
 document.addEventListener("DOMContentLoaded", function() {
-    loadComponent('components/header.html', 'header-placeholder', initializeHeaderScripts);
+    loadComponent('components/header.html', 'header-placeholder', () => {
+        initializeHeaderScripts(); // Bao gồm cả việc kích hoạt animation cho header
+        //setActiveNavLink(); // Đã có
+    });
     loadComponent('components/footer.html', 'footer-placeholder', initializeFooterScripts);
+
+    // Khởi tạo scroll animations cho các section nội dung
+    initializeScrollAnimations();
 
     // Initialize modals if they are present on the current page
     if (document.getElementById('strategyModal')) {
@@ -23,7 +30,7 @@ function loadComponent(url, placeholderId, callback) {
             if (placeholder) {
                 placeholder.innerHTML = data;
             } else {
-                console.warn(`Placeholder element with ID '${placeholderId}' not found.`);
+                // console.warn(`Placeholder element with ID '${placeholderId}' not found.`);
             }
             if (callback) callback();
         })
@@ -47,6 +54,7 @@ function initializeHeaderScripts() {
 
     const header = document.getElementById('mainHeader');
     if (header) {
+        // Header scroll effect
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('header-scrolled');
@@ -54,8 +62,15 @@ function initializeHeaderScripts() {
                 header.classList.remove('header-scrolled');
             }
         });
+
+        // Page load animation for header
+        header.classList.add('fade-in-on-load'); // Thêm class cho trạng thái ban đầu
+        // Sử dụng timeout nhỏ để đảm bảo trình duyệt đã render trước khi trigger transition
+        setTimeout(() => {
+            header.classList.add('is-visible');
+        }, 100); // Trigger animation
     }
-    setActiveNavLink();
+    setActiveNavLink(); // Gọi sau khi header đã được render và các class đã sẵn sàng
 }
 
 function initializeFooterScripts() {
@@ -68,7 +83,7 @@ function initializeFooterScripts() {
 function setActiveNavLink() {
     const navLinks = document.querySelectorAll('header nav a.nav-link-item');
     let currentPage = window.location.pathname.split('/').pop();
-    if (currentPage === '' || currentPage === 'deuscore-website') { // Adjust if hosted in subfolder
+    if (currentPage === '' || currentPage === 'deuscore-website') {
         currentPage = 'index.html';
     }
 
@@ -76,15 +91,37 @@ function setActiveNavLink() {
         let linkPage = link.getAttribute('href').split('/').pop();
         if (linkPage === '') linkPage = 'index.html';
 
+        link.classList.remove('nav-link-active'); // Reset all first
         if (linkPage === currentPage) {
             link.classList.add('nav-link-active');
-        } else {
-            link.classList.remove('nav-link-active');
         }
     });
 }
 
-// --- Gemini API Integration ---
+// Function to initialize scroll-triggered animations for content sections
+function initializeScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.fade-in-up-on-scroll');
+    if (!animatedElements.length) return;
+
+    const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observerInstance.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    }, {
+        root: null, // observing relative to the viewport
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+
+// --- Gemini API Integration (giữ nguyên phần này) ---
 const API_KEY = ""; // Canvas will provide it
 
 function setupModal(modalId, openBtnId, closeBtnId, generateBtnId, generateAction) {
@@ -93,7 +130,7 @@ function setupModal(modalId, openBtnId, closeBtnId, generateBtnId, generateActio
     const closeBtn = document.getElementById(closeBtnId);
     const generateBtn = document.getElementById(generateBtnId);
 
-    if (!modal) return; // Don't proceed if modal isn't on the page
+    if (!modal) return;
 
     if (openBtn) openBtn.onclick = () => modal.classList.remove('hidden');
     if (closeBtn) closeBtn.onclick = () => modal.classList.add('hidden');
@@ -112,7 +149,6 @@ async function callGeminiAPI(prompt, loadingElement, resultElement, errorElement
 
     const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
     const payload = { contents: chatHistory };
-    // Using v1beta as v1 might not support gemini-2.0-flash directly for all users
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
     try {
