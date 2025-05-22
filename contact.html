@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liên Hệ Với DeusCore - Hợp Tác & Phát Triển</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,7 +12,7 @@
 
     <div id="header-placeholder"></div>
 
-    <main class="pt-20">
+    <main class="pt-20 lg:pt-24"> {/* Thêm padding top cho header cao hơn */}
         <section class="py-12 sm:py-16 bg-gray-100">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="page-title">Kết Nối Với <span class="text-brick-red">DeusCore</span></h1>
@@ -25,10 +24,10 @@
 
         <section class="py-12 sm:py-16 fade-in-up-on-scroll">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-12">
+                <div class="grid md:grid-cols-2 gap-12 items-start"> {/* Thêm items-start */}
                     <div class="bg-white p-8 rounded-lg shadow-xl">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6">Gửi Lời Nhắn Cho Chúng Tôi</h2>
-                        <form action="#" method="POST">
+                        <form action="#" method="POST" id="contactForm"> {/* Cần endpoint xử lý form */}
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Họ và Tên <span class="text-brick-red">*</span></label>
@@ -36,11 +35,11 @@
                                 </div>
                                 <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-brick-red">*</span></label>
-                                    <input type="email" name="email" id="email" required class="modal-input" placeholder="bạn@email.com">
+                                    <input type="email" name="email" id="email" required class="modal-input" placeholder="ban@email.com">
                                 </div>
                             </div>
                             <div class="mb-6">
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Số Điện Thoại (Nếu có)</label>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Số Điện Thoại</label>
                                 <input type="tel" name="phone" id="phone" class="modal-input" placeholder="09xxxxxxxx">
                             </div>
                             <div class="mb-6">
@@ -54,16 +53,17 @@
                             <div>
                                 <button type="submit" class="btn btn-primary w-full text-lg">Gửi Lời Nhắn</button>
                             </div>
+                             <p id="formStatus" class="mt-4 text-sm text-center"></p> {/* Cho thông báo gửi form */}
                         </form>
                     </div>
 
                     <div class="space-y-8">
                         <div>
                              <h2 class="text-2xl font-bold text-gray-900 mb-4">Thông Tin Liên Hệ Trực Tiếp</h2>
-                             <div class="card !shadow-none !p-0">
+                             <div class="card !shadow-none !p-0 border border-gray-200"> {/* Thêm border nhẹ */}
                                 <div class="p-6 border-b border-gray-200">
                                     <h3 class="text-lg font-semibold text-gray-800 mb-1">Địa chỉ Email</h3>
-                                    <a href="mailto:connect@deuscore.agency" class="text-brick-red hover:underline">connect@deuscore.agency</a>
+                                    <a href="mailto:connect@deuscore.agency" class="text-brick-red hover:underline break-all">connect@deuscore.agency</a>
                                     <p class="text-sm text-gray-600 mt-1">Phản hồi trong vòng 24 giờ làm việc.</p>
                                 </div>
                                 <div class="p-6 border-b border-gray-200">
@@ -72,15 +72,15 @@
                                     <p class="text-sm text-gray-600 mt-1">Theo dõi và nhắn tin trực tiếp cho chúng tôi.</p>
                                 </div>
                                 <div class="p-6">
-                                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Văn Phòng (Nếu có)</h3>
-                                    <p class="text-gray-700">Tầng X, Tòa nhà Y, Đường Z, Quận W, TP. HCM (Ví dụ)</p>
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Văn Phòng (Ví dụ)</h3>
+                                    <p class="text-gray-700">Tầng X, Tòa nhà Y, Đường Z, Quận W, TP. HCM</p>
                                     <p class="text-sm text-gray-600 mt-1">Vui lòng đặt lịch hẹn trước khi đến.</p>
                                 </div>
                              </div>
                         </div>
-                        <div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
                             <h3 class="text-xl font-semibold text-gray-900 mb-3">Bạn là SME cần giải pháp đột phá?</h3>
-                            <p class="text-gray-700 mb-3 leading-relaxed">DeusCore sẵn sàng lắng nghe và tư vấn chiến lược phù hợp nhất để doanh nghiệp bạn cất cánh.</p>
+                            <p class="text-gray-700 mb-4 leading-relaxed">DeusCore sẵn sàng lắng nghe và tư vấn chiến lược phù hợp nhất để doanh nghiệp bạn cất cánh.</p>
                             <h3 class="text-xl font-semibold text-gray-900 mb-3">Bạn là tài năng trẻ muốn gia nhập?</h3>
                             <p class="text-gray-700 leading-relaxed">Chúng tôi luôn tìm kiếm những cá nhân xuất sắc, đam mê và có "chất" riêng. Hãy cho chúng tôi biết về bạn!</p>
                         </div>
@@ -93,5 +93,37 @@
     <div id="footer-placeholder"></div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Optional: Basic form submission status for contact.html
+        // Bạn sẽ cần một backend hoặc dịch vụ (Formspree, Netlify Forms) để xử lý việc gửi form thực sự.
+        // Đoạn mã này chỉ để hiển thị thông báo giả.
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        if(contactForm && formStatus) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Ngăn gửi form mặc định
+                // Giả lập việc gửi form
+                formStatus.textContent = 'Đang gửi lời nhắn...';
+                formStatus.className = 'mt-4 text-sm text-center text-blue-600';
+                
+                setTimeout(() => {
+                    // Logic kiểm tra form ở đây (ví dụ: kiểm tra các trường required)
+                    let isValid = true;
+                    contactForm.querySelectorAll('[required]').forEach(input => {
+                        if (!input.value.trim()) isValid = false;
+                    });
+
+                    if (isValid) {
+                        formStatus.textContent = 'Lời nhắn của bạn đã được gửi thành công! Chúng tôi sẽ liên hệ lại sớm.';
+                        formStatus.className = 'mt-4 text-sm text-center text-green-600';
+                        contactForm.reset(); // Xóa các trường trong form
+                    } else {
+                         formStatus.textContent = 'Vui lòng điền đầy đủ các trường bắt buộc.';
+                         formStatus.className = 'mt-4 text-sm text-center text-red-600';
+                    }
+                }, 1500);
+            });
+        }
+    </script>
 </body>
 </html>
